@@ -1,0 +1,31 @@
+{
+  "name": "placename_assignment",
+  "version": "1.0.0",
+  "description": "A hapi/node application using javascript for Fullstack 1 module on HDip 2024. This applcation will present a placename that can provide images, location and allow user signup and community contributions. ",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "lint": "./node_modules/.bin/eslint . --ext .js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LauraMurr/placename_assignment.git"
+  },
+  "author": "Laura Murray",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LauraMurr/placename_assignment/issues"
+  },
+  "homepage": "https://github.com/LauraMurr/placename_assignment#readme",
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "prettier": "^3.2.5"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^21.3.3"
+  }
+}
