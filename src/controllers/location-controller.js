@@ -31,8 +31,8 @@ export const locationController = {
       const newDetail = {
         title: request.payload.title,
         postcode: request.payload.postcode.toUpperCase(),
-        distance: Number(request.payload.distance),
-        duration: Number(request.payload.duration),
+        distance: request.payload.distance,
+        duration: request.payload.duration,
       };
       if (!eircodeRegex.test(newDetail.postcode)) {
         return h.redirect("/location-form?error=invalidpostcode");

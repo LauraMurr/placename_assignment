@@ -1,20 +1,57 @@
 <form class="box" action="/location/{{location._id}}/locationdetails" method="POST">
-  <label>Enter Location Details:</label>
+  <div class="field">
+    <label class="label">Enter Location Details:</label>
+  </div>
+
   <div class="field is-horizontal">
     <div class="field-body">
+      <!-- Title Field -->
       <div class="field">
-        <input class="input" type="text" placeholder="Enter Title" name="title">
+        <div class="control">
+          <input class="input" type="text" placeholder="Enter Title" name="title">
+        </div>
       </div>
+
+      <!-- Postcode Field -->
       <div class="field">
-        <input class="input" type="text" placeholder="Enter Postcode" name="postcode" pattern="([AC-FHKNPRTV-Y]\d{2}|D6W)[0-9AC-FHKNPRTV-Y]{4}">
+        <div class="control">
+          <input class="input" type="text" placeholder="Enter Postcode" name="postcode" pattern="([AC-FHKNPRTV-Y]\d{2}|D6W)[0-9AC-FHKNPRTV-Y]{4}">
+        </div>
       </div>
+
+      <!-- Distance Dropdown -->
       <div class="field">
-        <input class="input" type="text" placeholder="Enter Distance" name="Distance">
+        <div class="control">
+          <div class="select">
+            <select name="distance">
+              <option value="<1km"><1km</option>
+              <option value="1-3km">1-3km</option>
+              <option value="3-5km">3-5km</option>
+              <option value="5-8km">5-8km</option>
+              <option value="8-10km">8-10km</option>
+              <option value="10-13km">10-13km</option>
+              <option value="13-15km">13-15km</option>
+              <option value=">15km">>15km</option>
+            </select>
+          </div>
+        </div>
       </div>
-        <div class="field">
-        <input class="input" type="text" placeholder="Enter Duration" name="Duration">
+
+      <div class="field">
+        <div class="control">
+          <div class="select">
+            <select name="duration">
+              <option value="<1hr"><1hr</option>
+              <option value="1-2hrs">1-2hrs</option>
+              <option value="2-3hrs">2-3hrs</option>
+              <option value="3-4hrs">3-4hrs</option>
+              <option value="4-5hrs">4-5hrs</option>
+              <option value="5-6hrs">5-6hrs</option>
+              <option value=">6hrs">>6hrs</option>
+            </select>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+
   <button class="button is-primary">Add Details</button>
 </form>
