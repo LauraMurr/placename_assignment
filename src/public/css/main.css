@@ -1,0 +1,29 @@
+/* main.css */
+/* placename-brand.hbs*/
+.logo-image {
+    height: 270px; 
+    width: 100%;
+    justify-content: center
+  }
+
+/* welcome-menu.hbs*/
+.custom-navbar, .navbar-menu {
+    background-color: #2d2d2d; /* Dark gray */
+  }
+  
+  .navbar-menu {
+    justify-content: flex-end; /* Ensure menu items are aligned to the right */
+  }
+  
+  .navbar-brand {
+    flex-grow: 1;
+    justify-content: center; /* Center the brand/logo */
+  }
+
+  .navbar-item .buttons .button {
+    margin-right: 10px;
+    background-color: #DCEDC2;
+    color: #2d2d2d;
+  }
+  
+  

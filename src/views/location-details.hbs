@@ -1,0 +1,28 @@
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Postcode</th>
+      <th>Distance KM</th>
+      <th>Duration</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each details}}
+      <tr>
+        <td>
+          {{title}}
+        </td>
+        <td>
+          {{postcode}}
+        </td>
+        <td>
+          {{distance}}
+        </td>
+        <td>
+          {{duration}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

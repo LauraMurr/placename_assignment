@@ -1,0 +1,20 @@
+<form class="box" action="/location/{{location._id}}/locationdetails" method="POST">
+  <label>Enter Location Details:</label>
+  <div class="field is-horizontal">
+    <div class="field-body">
+      <div class="field">
+        <input class="input" type="text" placeholder="Enter Title" name="title">
+      </div>
+      <div class="field">
+        <input class="input" type="text" placeholder="Enter Postcode" name="postcode" pattern="([AC-FHKNPRTV-Y]\d{2}|D6W)[0-9AC-FHKNPRTV-Y]{4}">
+      </div>
+      <div class="field">
+        <input class="input" type="text" placeholder="Enter Distance" name="Distance">
+      </div>
+        <div class="field">
+        <input class="input" type="text" placeholder="Enter Duration" name="Duration">
+      </div>
+    </div>
+  </div>
+  <button class="button is-primary">Add Details</button>
+</form>
