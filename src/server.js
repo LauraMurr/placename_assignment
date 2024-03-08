@@ -6,6 +6,8 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { webRoutes } from "./web-routes.js";
 import { db } from "./models/db.js";
+import Cookie from "@hapi/cookie";
+import { accountsController } from "./controllers/accounts-controller.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -18,6 +20,18 @@ async function init() {
 
   await server.register(Vision);
   await server.register(Inert);
+  await server.register(Cookie);
+
+  server.auth.strategy("session", "cookie", {
+    cookie: {
+      name: "placename_assignment",
+      password: "secretpasswordnotrevealedtoanyone",
+      isSecure: false,
+    },
+    redirectTo: "/",
+    validate: accountsController.validate,
+  });
+    server.auth.default("session");
 
   server.views({
     engines: {
@@ -41,6 +55,9 @@ async function init() {
         index: false,
       },
     },
+    options: {
+      auth: false,
+    }
   });
   
   db.init();
