@@ -1,0 +1,30 @@
+{
+  "users": [
+    {
+      "firstName": "Bart",
+      "lastName": "Simpson",
+      "email": "bart@simpson.com",
+      "password": "test",
+      "_id": "4d3ff6a0-0f7a-4272-83f5-aba7e4b253d5"
+    }
+  ],
+  "locations": [
+    {
+      "userid": "4d3ff6a0-0f7a-4272-83f5-aba7e4b253d5",
+      "title": "Glending",
+      "_id": "5f5098e6-5b3d-497d-948e-04f0625bc179"
+    }
+  ],
+  "details": [
+    {
+      "title": "Glending",
+      "postcode": "W91W400",
+      "distance": "<1km",
+      "duration": "<1hr",
+      "_id": "3df6c688-987b-4b9f-8b06-6762c3a03a0e",
+      "locationid": "5f5098e6-5b3d-497d-948e-04f0625bc179"
+    }
+  ],
+  "images": [],
+  "reviews": []
+}
