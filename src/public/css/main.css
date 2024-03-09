@@ -3,7 +3,10 @@
 .logo-image {
     height: 270px; 
     width: 100%;
-    justify-content: center
+    justify-content: left;
+    border: none;
+    margin: 0; 
+    padding: 0;
   }
 
 /* welcome-menu.hbs*/
@@ -20,10 +23,60 @@
     justify-content: center; /* Center the brand/logo */
   }
 
-  .navbar-item .buttons .button {
+  .navbar-item .buttons .button { /* colour and margin of buttons on navbar */
     margin-right: 10px;
     background-color: #DCEDC2;
     color: #2d2d2d;
   }
   
-  
+  /* Site-wide button styling */
+.button {
+  background-color: #DCEDC2; /* Light green */
+  color: #2d2d2d; /* Dark gray */
+  border: none; /* Removes the default border */
+  cursor: pointer; /* Changes cursor to pointer on hover */
+  padding: 10px 15px; /* Adjusts padding for better sizing */
+  text-align: center; /* Ensures text is centered */
+  text-decoration: none; /* Removes underline from links styled as buttons */
+  display: inline-block; /* Allows setting dimensions */
+  font-size: 16px; /* Adjusts font size */
+  margin: 4px 2px; /* Adds some space around buttons */
+  transition-duration: 0.4s; /* Smooth transition for hover effect */
+}
+
+.button:hover {
+  background-color: #46543a; /* Slightly darker green for hover effect */
+}
+
+/* Forms */
+/* Adjust the form container to align with the brand image */
+.form-container .input-field {
+  max-width: 400px;
+  margin: auto;
+  display: block;
+}
+
+/* Style for the input box */
+.location-input {
+  max-width: 400px; /* Adjust the width as necessary */
+  background-color: #DCEDC2; /* Light green background */
+  color: #2d2d2d; /* Dark grey text */
+  border-color: #DCEDC2;
+}
+
+/* Locations containter */
+.locations-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 1rem;
+  align-items: stretch;
+ 
+
+}
+
+.location-box {
+  flex-basis: 30%; /* How many boxes in a row */
+  margin-bottom: 1rem; /* Space between the boxes */
+}
+

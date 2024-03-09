@@ -20,5 +20,7 @@ export const webRoutes = [
     { method: "POST", path: "/location/{locationId}/locationdetails", config: locationController.addLocationDetails},
     { method: "GET", path: "/location/{locationId}/locationdetails", config: locationController.locationDetails},
     { method: "GET", path: "/about", config: aboutController.index },
+    { method: "GET", path: "/dashboard/deletelocation/{id}", config: dashboardController.deleteLocation },
+    { method: "GET", path: "/location/{id}/deletedetails/{detailid}", config: locationController.deleteDetail },
 
 ];
