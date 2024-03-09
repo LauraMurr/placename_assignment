@@ -41,6 +41,8 @@ export const detailsJsonStore = {
   async updateDetail(detail, updatedDetail) {
     detail.title = updatedDetail.title;
     detail.postcode = updatedDetail.postcode;
+    detail.latitude = updatedDetail.latitude;
+    detail.longitude = updatedDetail.longitude;
     detail.distance = updatedDetail.distance;
     detail.duration = updatedDetail.duration;
   },

@@ -4,6 +4,7 @@ import { aboutController } from "./controllers/about-controller.js";
 import {locationController} from "./controllers/location-controller.js";
 import path from "path";
 import { fileURLToPath } from "url";
+import { LocationSpec } from "./models/joi-schemas.js";
 
 
 export const webRoutes = [

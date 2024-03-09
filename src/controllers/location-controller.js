@@ -1,4 +1,5 @@
 import { db } from "../models/db.js";
+import { LocationSpec } from "../models/joi-schemas.js";
 
 export const locationController = {
   index: {
@@ -24,19 +25,30 @@ export const locationController = {
 
   addLocationDetails: {
     handler: async function (request, h) {
+      console.log(request.payload);
+
       // Define eircode REGEX
       const eircodeRegex = /([AC-FHKNPRTV-Y]\d{2}|D6W)[0-9AC-FHKNPRTV-Y]{4}/;
+
+      const { value, error } = LocationSpec.validate(request.payload);
+      if (error) {
+        return h.redirect(`/location-form?error=${encodeURIComponent(error.details[0].message)}`);
+      }
 
       const locationId = request.params.locationId;
       const newDetail = {
         title: request.payload.title,
-        postcode: request.payload.postcode.toUpperCase(),
+        postcode: value.postcode ? value.postcode.toUpperCase() : null, 
+        latitude: value.latitude,
+        longitude: value.longitude,
         distance: request.payload.distance,
         duration: request.payload.duration,
       };
-      if (!eircodeRegex.test(newDetail.postcode)) {
-        return h.redirect("/location-form?error=invalidpostcode");
-      }
+
+     if (newDetail.postcode && !eircodeRegex.test(newDetail.postcode)) {
+      return h.redirect("/location-form?error=invalidpostcode");
+    }
+
       await db.detailStore.addDetail(locationId, newDetail);
       return h.redirect(`/location/${locationId}/locationdetails`);
     },
