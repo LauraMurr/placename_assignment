@@ -7,7 +7,6 @@
   </div>
 </section>
 
-
 <table class="table is-fullwidth">
   <thead>
     <tr>
@@ -15,27 +14,25 @@
       <th>Postcode</th>
       <th>Distance KM</th>
       <th>Duration</th>
+      <th>Delete</th> 
     </tr>
   </thead>
   <tbody>
     {{#each details}}
       <tr>
-        <td>
-          {{title}}
-        </td>
-        <td>
-          {{postcode}}
-        </td>
-        <td>
-          {{distance}}
-        </td>
-        <td>
-          {{duration}}
-        </td>
-        <a href="/location/{{../location._id}}/deletedetails/{{_id}}" class="ui icon button">
+        <td>{{title}}</td>
+        <td>{{postcode}}</td>
+        <td>{{distance}}</td>
+        <td>{{duration}}</td>
+        <td> 
+          <a href="/location/{{../location._id}}/deletedetails/{{_id}}" class="button">
             <i class="fas fa-trash"></i>
           </a>
+        </td>
       </tr>
     {{/each}}
   </tbody>
 </table>
+<div class="container">
+  <a href="/dashboard" class="button">Back</a>
+</div>

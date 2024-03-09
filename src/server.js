@@ -8,6 +8,8 @@ import { webRoutes } from "./web-routes.js";
 import { db } from "./models/db.js";
 import Cookie from "@hapi/cookie";
 import { accountsController } from "./controllers/accounts-controller.js";
+import dotenv from "dotenv";
+import Joi from "joi";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -21,6 +23,7 @@ async function init() {
   await server.register(Vision);
   await server.register(Inert);
   await server.register(Cookie);
+  server.validator(Joi);
 
   server.auth.strategy("session", "cookie", {
     cookie: {
@@ -59,16 +62,22 @@ async function init() {
       auth: false,
     }
   });
+
+  const result = dotenv.config();
+  if (result.error) {
+    console.log(result.error.message);
+    process.exit(1);
+  }
   
   db.init();
   server.route(webRoutes);
   await server.start();
   console.log("Server running on %s", server.info.uri);
-}
+  };
 
-process.on("unhandledRejection", (err) => {
-  console.log(err);
-  process.exit(1);
-});
+  process.on("unhandledRejection", (err) => {
+    console.log(err);
+    process.exit(1);
+  });
 
 init();

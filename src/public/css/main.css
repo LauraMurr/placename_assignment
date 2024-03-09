@@ -80,3 +80,17 @@
   margin-bottom: 1rem; /* Space between the boxes */
 }
 
+.title-green {
+  color: #DCEDC2; 
+}
+
+
+.label-green {
+  color: #DCEDC2; 
+}
+
+form .input-green {
+  background-color: #DCEDC2;
+  border-color: #DCEDC2;
+  color: #2d2d2d;
+}
