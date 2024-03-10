@@ -1,5 +1,7 @@
 import { db } from "../models/db.js";
 import { LocationSpec } from "../models/joi-schemas.js";
+import { DetailSpec } from "../models/joi-schemas.js";
+
 
 export const locationController = {
   index: {
@@ -24,6 +26,13 @@ export const locationController = {
   },
 
   addLocationDetails: {
+    validate: {
+      payload: DetailSpec,
+      options: { abortEarly: false },
+      failAction: function (request, h, error) {
+        return h.view("location-view", { title: "Adding Details error", errors: error.details }).takeover().code(400);
+      },
+    },
     handler: async function (request, h) {
       console.log(request.payload);
 

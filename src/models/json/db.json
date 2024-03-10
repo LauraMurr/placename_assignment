@@ -1,23 +1,39 @@
 {
   "users": [
     {
+      "firstName": "Homer",
+      "lastName": "Simpson",
+      "email": "homer@simpson.com",
+      "password": "secret",
+      "_id": "bc410768-75a7-44a3-8994-50d5eb02c374"
+    },
+    {
+      "firstName": "Marge",
+      "lastName": "Simpson",
+      "email": "marge@simpson.com",
+      "password": "secret",
+      "_id": "01ffc1ce-110d-4d11-a331-ff6482bcfe5f"
+    },
+    {
       "firstName": "Bart",
       "lastName": "Simpson",
       "email": "bart@simpson.com",
-      "password": "test",
-      "_id": "4d3ff6a0-0f7a-4272-83f5-aba7e4b253d5"
+      "password": "secret",
+      "_id": "f95deb4c-9f92-4c06-b89d-053ecd787bb8"
     }
   ],
   "locations": [
     {
-      "userid": "4d3ff6a0-0f7a-4272-83f5-aba7e4b253d5",
-      "title": "Glending",
-      "_id": "5f5098e6-5b3d-497d-948e-04f0625bc179"
+      "title": "hillwalk2",
+      "_id": "1ecd507c-f20d-45f0-909d-2659ad4eca2f"
     },
     {
-      "userid": "4d3ff6a0-0f7a-4272-83f5-aba7e4b253d5",
-      "title": "avon",
-      "_id": "dd8c2194-ce0b-485b-8652-fb5fbf3e5f2e"
+      "title": "hillwalk3",
+      "_id": "4518f06d-3ac1-468f-a705-d94b998f437f"
+    },
+    {
+      "title": "hillwalk4",
+      "_id": "9575eb95-83a6-452a-910b-d0b4bc6df677"
     }
   ],
   "details": [
