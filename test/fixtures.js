@@ -40,5 +40,5 @@ export const maggie = {
     },
     {
         title: "hillwalk4"
-    }
+    },
   ];
