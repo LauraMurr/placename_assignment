@@ -24,22 +24,30 @@
   ],
   "locations": [
     {
-      "title": "hillwalk2",
-      "_id": "6276d93c-f34d-433e-9b70-7a0ac8b98af8"
+      "title": "Glending",
+      "_id": "6276d93c-f34d-433e-9b70-7a0ac8b98af8",
+      "imagepath": "images/forest1.jpg"
     },
     {
-      "title": "hillwalk3",
-      "_id": "6003d446-7666-4817-a5d7-31facd7348fe"
+      "title": "Black Hill",
+      "_id": "6003d446-7666-4817-a5d7-31facd7348fe",
+      "imagepath": "images/forest2.jpg"
     },
     {
-      "title": "hillwalk4",
-      "_id": "b8fbe2bf-99a1-4c0f-acb2-4ec1676d9c61"
+      "title": "Avon",
+      "_id": "b8fbe2bf-99a1-4c0f-acb2-4ec1676d9c61",
+      "imagepath": "images/forest3.jpg"
+    },
+    {
+      "title": "Lugnagun",
+      "_id": "b8fbe2bf-99a1-4c0f-acb2-4ec1676d9c61",
+      "imagepath": "images/forest4.jpg"
     }
   ],
   "details": [
     {
       "title": "Glending",
-      "postcode": "W91W400",
+      "postcode": "null",
       "distance": "<1km",
       "duration": "<1hr",
       "_id": "3df6c688-987b-4b9f-8b06-6762c3a03a0e",
@@ -54,7 +62,7 @@
       "locationid": "dd8c2194-ce0b-485b-8652-fb5fbf3e5f2e"
     },
     {
-      "title": "Test",
+      "title": "Black Hill",
       "postcode": null,
       "latitude": 52.25932,
       "longitude": -7.11007,

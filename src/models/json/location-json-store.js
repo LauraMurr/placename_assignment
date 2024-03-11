@@ -11,6 +11,8 @@ export const locationJsonStore = {
   async addLocation(location) {
     await db.read();
     location._id = v4();
+    // imclude image for new location and default image if no image added
+    location.imagePath = location.imagePath || 'images/default.jpg';
     db.data.locations.push(location);
     await db.write();
     return location;
@@ -42,5 +44,19 @@ export const locationJsonStore = {
   async deleteAllLocations() {
     db.data.locations = [];
     await db.write();
+  },
+
+  // update a location or image
+  async updateLocation(locationId, updatedLocation) {
+    await db.read();
+    const index = db.data.locations.findIndex((location) => location._id === locationId);
+    if (index !== -1) {
+      db.data.locations[index] = {
+        ...db.data.locations[index],
+        ...updatedLocation,
+        _id: locationId // Ensure the ID remains unchanged
+      };
+      await db.write();
+    }
   },
 };

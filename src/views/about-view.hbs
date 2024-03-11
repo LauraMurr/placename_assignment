@@ -1,8 +1,49 @@
-{{> menu active="about"}}
+{{#if session.isAuthenticated}}
+  {{> menu active="about"}}
+{{else}}
+  {{> welcome-menu active="about"}}
+{{/if}}
 
-<section class="hero">
-  <div class="hero-body has-text-centered">
-    <p class="title ">
-      West Wicklow Walks: Local guide to walking in west wicklow </p>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-vcentered">
+      <div class="column is-half">
+        <figure class="image">
+          <img src="/public/images/lake.jpg" alt="West Wicklow Lake">
+        </figure>
+      </div>
+      <div class="column is-half">
+        <h1 class="title is-2" style="color: #DCEDC2;">West Wicklow Walks</h1>
+        <p style="color: #DCEDC2;">
+          Your local guide to exploring the serene and beautiful walks in West Wicklow. Discover hidden trails, breathtaking landscapes, and reconnect with nature in this adventurer's paradise.
+        </p>
+      </div>
+    </div>
+
+    <div class="columns is-vcentered">
+      <div class="column is-half">
+        <h1 class="title is-2" style="color: #DCEDC2;">Signing Up and Exploring Walks</h1>
+        <p style="color: #DCEDC2;">When you sign up for West Wicklow Walks, you gain access to a curated collection of the best walks in West Wicklow. Each walk is detailed with beautiful imagery, essential information, and user reviews to guide you on what to expect. As a registered user, you can browse through these walks and plan your adventures.</p>
+      </div>
+      <div class="column is-half">
+        <figure class="image">
+          <img src="/public/images/lake2.jpg" alt="Exploring West Wicklow Walks">
+        </figure>
+      </div>
+    </div>
+
+    <div class="columns is-vcentered">
+      <div class="column is-half">
+        <figure class="image">
+          <img src="/public/images/hills.jpg" alt="Discovering new paths in West Wicklow">
+        </figure>
+      </div>
+      <div class="column is-half">
+        <h1 class="title is-2" style="color: #DCEDC2;">Adding New Walks & Engaging with the Community</h1>
+        <p style="color: #DCEDC2;">Have you discovered a hidden gem in West Wicklow? Share it with the community by adding new walks to the platform. Engage with fellow nature enthusiasts and become part of our mission to uncover all the wonders West Wicklow has to offer.</p>
+      </div>
+    </div>
   </div>
 </section>
+

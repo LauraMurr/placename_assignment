@@ -47,6 +47,10 @@ build/Release
 node_modules/
 jspm_packages/
 
+# Public uploads directory
+# Do not upload public image uploads to git
+public/uploads/*
+
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
 

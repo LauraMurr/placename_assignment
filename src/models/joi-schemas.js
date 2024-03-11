@@ -19,7 +19,9 @@ export const UserCredentialsSpec = {
     longitude: Joi.number().min(-180).max(180).when('postcode', { is: '', then: Joi.required(), otherwise: Joi.allow(null) }),
     distance: Joi.string().valid('<1km', '1-3km', '3-5km', '5-8km', '8-10km', '10-13km', '13-15km', '>15km').required(),
     duration: Joi.string().valid('<1hr', '1-2hrs', '2-3hrs', '3-4hrs', '4-5hrs', '5-6hrs', '>6hrs').required(),
-  });
+    image: Joi.string().allow(''),
+    isPublic: Joi.boolean(),
+    });
   
   
   export const DetailSpec = {
