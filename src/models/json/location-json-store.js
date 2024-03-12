@@ -13,6 +13,8 @@ export const locationJsonStore = {
     location._id = v4();
     // imclude image for new location and default image if no image added
     location.imagePath = location.imagePath || 'images/default.jpg';
+    // locations added are user-created by default
+    location.isSetLocation = location.isSetLocation || false;
     db.data.locations.push(location);
     await db.write();
     return location;
@@ -27,6 +29,11 @@ export const locationJsonStore = {
         list = null;
     }
     return list;
+  },
+
+  async getSetLocations() {
+    await db.read();
+    return db.data.locations.filter(location => location.isSetLocation === true);
   },
 
   async getUserLocations(userid) {
@@ -59,4 +66,18 @@ export const locationJsonStore = {
       await db.write();
     }
   },
+
+  // link user with set location
+  async addUserLocation(userId, locationId) {
+    await db.read();
+    const location = db.data.locations.find(location => location._id === locationId);
+    if (location) {
+      // Clone the location and add it as a new entry with the user's ID
+      const userLocation = { ...location, userid: userId, _id: v4() }; // Generate a new ID for this user-specific location
+      db.data.locations.push(userLocation);
+      await db.write();
+    }
+  },
+  
 };
+console.log(locationJsonStore);

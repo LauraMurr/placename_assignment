@@ -20,76 +20,107 @@
       "email": "bart@simpson.com",
       "password": "secret",
       "_id": "f95deb4c-9f92-4c06-b89d-053ecd787bb8"
+    },
+    {
+      "firstName": "Laura",
+      "lastName": "Murray",
+      "email": "laura@simpson.com",
+      "password": "test",
+      "_id": "568af6ed-2e89-4430-a9b0-9f849f5288e5"
     }
   ],
   "locations": [
     {
       "title": "Glending",
-      "_id": "6276d93c-f34d-433e-9b70-7a0ac8b98af8",
-      "imagepath": "images/forest1.jpg"
-    },
-    {
-      "title": "Black Hill",
-      "_id": "6003d446-7666-4817-a5d7-31facd7348fe",
-      "imagepath": "images/forest2.jpg"
+      "_id": "ff68ff1d-b227-4693-8c32-d1ce4633c1b2",
+      "imagePath": "images/Forest1.jpg",
+      "isSetLocation": true
     },
     {
       "title": "Avon",
-      "_id": "b8fbe2bf-99a1-4c0f-acb2-4ec1676d9c61",
-      "imagepath": "images/forest3.jpg"
+      "_id": "41070df4-e05d-4dec-b492-23d7486dfea6",
+      "imagePath": "images/Forest2.jpg",
+      "isSetLocation": true
     },
     {
-      "title": "Lugnagun",
-      "_id": "b8fbe2bf-99a1-4c0f-acb2-4ec1676d9c61",
-      "imagepath": "images/forest4.jpg"
+      "title": "Russelstown",
+      "_id": "7f7a3c0c-e589-42f9-9fb1-ea5f39159797",
+      "imagePath": "images/Forest3.jpg",
+      "isSetLocation": true
+    },
+    {
+      "title": "Russburough",
+      "_id": "7f7a3c0c-e589-42f9-9fb1-ea5f39159797",
+      "imagePath": "images/Forest4.jpg",
+      "isSetLocation": true
+    },
+    {
+      "userid": "568af6ed-2e89-4430-a9b0-9f849f5288e5",
+      "title": "Black Hill",
+      "_id": "c7592c24-bc1f-4da0-86c4-e0ce40744670",
+      "imagePath": "images/default.jpg",
+      "isSetLocation": false
+    },
+    {
+      "title": "Glending",
+      "_id": "bc6c9a85-8cfb-4c3a-9d4c-653a9f34de0e",
+      "imagePath": "images/Forest1.jpg",
+      "isSetLocation": true,
+      "userid": "568af6ed-2e89-4430-a9b0-9f849f5288e5"
+    },
+    {
+      "title": "Avon",
+      "_id": "ca642d63-20e7-452b-96f6-eecb77feff86",
+      "imagePath": "images/Forest2.jpg",
+      "isSetLocation": true,
+      "userid": "568af6ed-2e89-4430-a9b0-9f849f5288e5"
     }
   ],
   "details": [
     {
       "title": "Glending",
+      "imagePath": "images/Forest1.jpg",
+      "locationid": "ff68ff1d-b227-4693-8c32-d1ce4633c1b2",
       "postcode": "null",
+      "latitude": 52.25932,
+      "longitude": -7.11007,
       "distance": "<1km",
       "duration": "<1hr",
       "_id": "3df6c688-987b-4b9f-8b06-6762c3a03a0e",
-      "locationid": "5f5098e6-5b3d-497d-948e-04f0625bc179"
+      "isSetLocation": true
     },
     {
       "title": "Avon",
+      "locationId": "41070df4-e05d-4dec-b492-23d7486dfea6",
       "postcode": "W91HFX3",
+      "latitude": 52.25932,
+      "longitude": -7.11007,
       "distance": "3-5km",
       "duration": "<1hr",
       "_id": "266d1447-f721-4a55-9d55-da5ab1ac1fb8",
-      "locationid": "dd8c2194-ce0b-485b-8652-fb5fbf3e5f2e"
+      "isSetLocation": true
     },
     {
-      "title": "Black Hill",
+      "title": "Russelstown",
+      "locationId": "7f7a3c0c-e589-42f9-9fb1-ea5f39159797",
       "postcode": null,
       "latitude": 52.25932,
       "longitude": -7.11007,
       "distance": "<1km",
       "duration": "<1hr",
       "_id": "829ce2bd-d261-477b-8009-e2a90bb0cc76",
-      "locationid": "5f5098e6-5b3d-497d-948e-04f0625bc179"
+      "isSetLocation": true
     },
     {
-      "title": "Test",
+      "title": "Russborough",
+      "locationId": "7f7a3c0c-e589-42f9-9fb1-ea5f39159797",
       "postcode": null,
       "latitude": 52.25932,
       "longitude": -7.11007,
       "distance": "<1km",
       "duration": "<1hr",
       "_id": "c154d08c-bb17-41fe-9822-8eb9800f4eac",
-      "locationid": "5f5098e6-5b3d-497d-948e-04f0625bc179"
-    },
-    {
-      "title": "test",
-      "postcode": null,
-      "latitude": 52.25932,
-      "longitude": -7.11007,
-      "distance": "5-8km",
-      "duration": "2-3hrs",
-      "_id": "674999fb-23ff-4a42-a5cc-40e7341fa8f7",
-      "locationid": "5f5098e6-5b3d-497d-948e-04f0625bc179"
+      "isSetLocation": true
     }
   ],
   "images": [],

@@ -21,8 +21,9 @@ export const webRoutes = [
     { method: "GET", path: "/dashboard", config: dashboardController.index },
     { method: "POST", path: "/dashboard/addlocation", config: dashboardController.addLocation },
     { method: "GET", path: "/location/{id}", config: locationController.index},
-    { method: "POST", path: "/location/{locationId}/locationdetails", config: locationController.addLocationDetails},
-    { method: "GET", path: "/location/{locationId}/locationdetails", config: locationController.locationDetails},
+    { method: "GET", path: "/location/{id}/locationdetails", config: locationController.locationDetails},
+    { method: "GET", path: "/setlocationdetails/{id}", config: locationController.setLocationDetails },
+    { method: "POST", path: "/dashboard/selectlocation", config: dashboardController.selectLocation},
     { method: "GET", path: "/dashboard/deletelocation/{id}", config: dashboardController.deleteLocation },
     { method: "GET", path: "/location/{id}/deletedetails/{detailid}", config: locationController.deleteDetail },
 

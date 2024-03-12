@@ -7,10 +7,12 @@ export const dashboardController = {
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials;
       const locations = await db.locationStore.getUserLocations(loggedInUser._id);
+      const setLocations = await db.locationStore.getSetLocations(); 
       const viewData = {
         title: "Location Dashboard",
         user: loggedInUser,
         locations: locations,
+        setLocations: setLocations,
       };
       return h.view("dashboard-view", viewData);
     },
@@ -42,4 +44,16 @@ export const dashboardController = {
       return h.redirect("/dashboard");
     },
   },
+
+  selectLocation: {
+    handler: async function (request, h) {
+      const loggedInUser = request.auth.credentials;
+      const locationId = request.payload.locationId;
+       // return h.redirect(`/location-details/${locationId}`);
+      await db.locationStore.addUserLocation(loggedInUser._id, locationId);
+      return h.redirect("/dashboard");
+     
+    },
+  },
+    
 };

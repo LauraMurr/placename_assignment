@@ -1,10 +1,28 @@
 <div class="form-container">
+  <!-- Form for adding a new location -->
   <form action="/dashboard/addlocation" method="POST">
     <div class="field">
       <div class="control">
         <input class="input location-input" type="text" placeholder="Enter Location" name="title">
       </div>
     </div>
-    <button class="button add-location-button">Add Location</button>
+    <button class="button add-location-button">Add New Location</button>
+  </form>
+
+  <!-- Dropdown for selecting a set location -->
+  <form action="/dashboard/selectlocation" method="POST">
+    <div class="field">
+      <label class="label">Select a Set Location:</label>
+      <div class="control">
+        <div class="select">
+          <select name="locationId">
+            {{#each setLocations}}
+              <option value="{{this._id}}">{{this.title}}</option>
+            {{/each}}
+          </select>
+        </div>
+      </div>
+    </div>
+    <button class="button select-location-button">Select Location</button>
   </form>
 </div>

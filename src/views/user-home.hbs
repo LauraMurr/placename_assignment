@@ -1,27 +1,9 @@
 {{#if isAuthenticated}}
-  {{> menu active="/"}}
+  {{> menu active="home"}}
 {{else}}
-  {{> welcome-menu active="/"}}
+  {{> welcome-menu active="home"}}
 {{/if}}
 
-<div class="columns is-multiline">
-  {{#each locations}}
-  <div class="column is-6">
-    <div class="card">
-      <div class="card-image">
-        <figure class="image is-3by2">
-          <img src="/public/images/{{this.imagePath}}" alt="{{this.title}}">
-        </figure>
-      </div>
-      <div class="card-content">
-        <div class="content has-text-centered location-title">
-          <a href="/setlocationdetails/{{locationId}}">{{title}}</a> <!-- Updated Line -->
-        </div>
-      </div>
-    </div>
-  </div>
-  {{/each}}
-</div>
 
 
 <div class="columns is-multiline">
@@ -34,7 +16,7 @@
       </div>
       <div class="card-content">
         <div class="content has-text-centered location-title">
-          <a href="/setlocationdetails/{{this._id}}">Glending</a>
+          Glending
         </div>
       </div>
     </div>

@@ -1,3 +1,4 @@
+{{#if isAuthenticated}}
 <form class="box" action="/location/{{location._id}}/locationdetails" method="POST">
   <div class="field">
     <label class="label">Enter Location Details:</label>
@@ -63,3 +64,4 @@
 
   <button class="button is-primary">Add Details</button>
 </form>
+{{/if}}

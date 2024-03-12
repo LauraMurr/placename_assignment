@@ -65,17 +65,38 @@ export const locationController = {
 
   locationDetails: {
     handler: async function (request, h) {
-      const locationId = request.params.locationId || request.params.id;
+      const locationId = request.params.id; 
       const location = await db.locationStore.getLocationById(locationId);
-      const details = await db.detailStore.getDetailsByLocationId(locationId);
-
-      return h.view("location-details", {
+      const details = await db.detailStore.getDetailsByLocationId(locationId); // Ensure this method exists in your details store
+  
+      const viewData = {
         title: "Location Details",
         location: location,
         details: details,
-      });
+        isAuthenticated: request.auth.isAuthenticated,
+      };
+  
+      return h.view("location-details", viewData);
     },
   },
+
+  setLocationDetails: {
+    handler: async function (request, h) {
+      const locationId = request.params.id;
+      const location = await db.locationStore.getLocationById(locationId);
+      const details = await db.detailStore.getDetailsByLocationId(locationId);
+  
+      const viewData = {
+        title: location.title + " Details",
+        location,
+        details
+      };
+  
+      return h.view("set-details-view", viewData);
+    },
+  },
+  
+  
 
   deleteDetail: {
     handler: async function(request, h) {

@@ -21,6 +21,7 @@ export const db = {
   detailStore: null,
 
   init(storeType) {
+    console.log(`Initializing DB with store type: ${storeType}`);
     switch (storeType) {
       case "json":
         this.userStore = userJsonStore;

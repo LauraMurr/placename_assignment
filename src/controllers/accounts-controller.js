@@ -10,6 +10,7 @@ export const accountsController = {
       return h.view("main", { title: "Welcome to West Wicklow Walks" });
     },
   },
+  
 
   showSignup: {
     auth: false,
@@ -29,8 +30,16 @@ export const accountsController = {
     },
     handler: async function (request, h) {
       const user = request.payload;
-      await db.userStore.addUser(user);
-      return h.redirect("/");
+      const existingUser = await db.userStore.getUserByEmail(user.email);
+      // Error handling in case user has already signed up
+      if (existingUser) {
+        const errorMessage = `A user with the email address ${user.email} already exists.`;
+        return h.view("signup-view", { title: "Sign up error", errors: [{ message: errorMessage }] }).takeover().code(400);
+      }
+      const newUser = await db.userStore.addUser(user);
+      // automatically log new user in after they've signed up
+      request.cookieAuth.set({ id: newUser._id });
+      return h.redirect("dashboard");
     },
   },
 
