@@ -15,16 +15,6 @@ export const locationController = {
     },
   },
 
-  addLocation: {
-    handler: async function (request, h){
-      const newLocation = {
-        title: request.payload.title,
-      };
-      const location = await db.locationStore.addLocation(newLocation);
-      return h.redirect("/dashboard");
-    },
-  },
-
   addLocationDetails: {
     validate: {
       payload: DetailSpec,
@@ -44,7 +34,7 @@ export const locationController = {
         return h.redirect(`/location-form?error=${encodeURIComponent(error.details[0].message)}`);
       }
 
-      const locationId = request.params.locationId;
+      const locationId = request.params.id;
       const newDetail = {
         title: request.payload.title,
         postcode: value.postcode ? value.postcode.toUpperCase() : null, 
@@ -55,7 +45,7 @@ export const locationController = {
       };
 
      if (newDetail.postcode && !eircodeRegex.test(newDetail.postcode)) {
-      return h.redirect("/location-form?error=invalidpostcode");
+      return h.redirect(`/location-form?error=invalidpostcode`);
     }
 
       await db.detailStore.addDetail(locationId, newDetail);
@@ -79,24 +69,6 @@ export const locationController = {
       return h.view("location-details", viewData);
     },
   },
-
-  setLocationDetails: {
-    handler: async function (request, h) {
-      const locationId = request.params.id;
-      const location = await db.locationStore.getLocationById(locationId);
-      const details = await db.detailStore.getDetailsByLocationId(locationId);
-  
-      const viewData = {
-        title: location.title + " Details",
-        location,
-        details
-      };
-  
-      return h.view("set-details-view", viewData);
-    },
-  },
-  
-  
 
   deleteDetail: {
     handler: async function(request, h) {

@@ -1,6 +1,6 @@
 import { db } from "../models/db.js";
 import { LocationSpec } from "../models/joi-schemas.js";
-import { DetailSpec } from "../models/joi-schemas.js";
+
 
 export const dashboardController = {
   index: {
@@ -20,7 +20,7 @@ export const dashboardController = {
 
   addLocation: {
     validate: {
-      payload: DetailSpec,
+      payload: LocationSpec,
       options: { abortEarly: false },
       failAction: function (request, h, error) {
         return h.view("dashboard-view", { title: "Add Location Error", errors: error.details }).takeover().code(400);
@@ -32,8 +32,8 @@ export const dashboardController = {
         userid: loggedInUser._id,
         title: request.payload.title,
       };
-      await db.locationStore.addLocation(newLocation);
-      return h.redirect("/dashboard");
+      const location = await db.locationStore.addLocation(newLocation);
+      return h.redirect(`/location/${location._id}/add-details`);
     },
   },
 
@@ -46,12 +46,18 @@ export const dashboardController = {
   },
 
   selectLocation: {
+    // allow a user to select a set location 
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials;
       const locationId = request.payload.locationId;
        // return h.redirect(`/location-details/${locationId}`);
-      await db.locationStore.addUserLocation(loggedInUser._id, locationId);
-      return h.redirect("/dashboard");
+      try {
+        await db.locationStore.addUserLocation(loggedInUser._id, locationId);
+        return h.redirect("/dashboard");
+      } catch (error) {
+        console.error('Error linking location to user:', error);
+        return h.redirect("/dashboard?error=linkingFailed");
+      }
      
     },
   },

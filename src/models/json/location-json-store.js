@@ -70,14 +70,22 @@ export const locationJsonStore = {
   // link user with set location
   async addUserLocation(userId, locationId) {
     await db.read();
-    const location = db.data.locations.find(location => location._id === locationId);
-    if (location) {
-      // Clone the location and add it as a new entry with the user's ID
-      const userLocation = { ...location, userid: userId, _id: v4() }; // Generate a new ID for this user-specific location
-      db.data.locations.push(userLocation);
+    // check if location exists
+    const locationExists = db.data.locations.some(location => location._id === locationId);
+    if (!locationExists) {
+      throw new Error('Location does not exist.');
+    }
+    // check if user has this location on their list
+      const userHasLocation = db.data.userLocations.some(ul => ul.userId === userId && ul.locationId === locationId);
+      if (!userHasLocation) {
+        // Add a new user-location association
+        db.data.userLocations.push({
+          _id: v4(), // Unique ID for the association
+          userId: userId,
+          locationId: locationId
+        });    
       await db.write();
     }
   },
   
 };
-console.log(locationJsonStore);

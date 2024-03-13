@@ -1,13 +1,31 @@
 import { db } from "../models/db.js";
 import { UserSpec, } from "../models/joi-schemas.js";
+import { LocationSpec } from "../models/joi-schemas.js";
 
 
 export const accountsController = {
 
   index: {
     auth: false,
-    handler: function (request, h) {
-      return h.view("main", { title: "Welcome to West Wicklow Walks" });
+    handler: async function (request, h) {
+      console.log('Is Authenticated:', request.auth.isAuthenticated);
+      console.log('Credentials:', request.auth.credentials);
+      try {
+        const setLocations = await db.locationStore.getSetLocations(); // Fetch all 'Set' locations
+        return h.view("main", {
+          title: "Welcome to West Wicklow Walks",
+          setLocations: setLocations, // Set locations are publicaly available on the home page
+          isAuthenticated: request.auth.isAuthenticated
+        });
+      } catch (error) {
+        console.error('Error fetching locations:', error);
+        // Error handling
+        return h.view("main", {
+          title: "Welcome to West Wicklow Walks",
+          error: 'Could not load locations. Please try again later.',
+          isAuthenticated: request.auth.isAuthenticated
+        });
+      }
     },
   },
   
@@ -60,6 +78,7 @@ export const accountsController = {
         return h.redirect("/login?error=invalidcredentials");
       }
       request.cookieAuth.set({ id: user._id });
+      console.log('Session set for user:', request.auth.credentials);
       return h.redirect("/dashboard");
     },
   },
@@ -80,4 +99,5 @@ export const accountsController = {
     return { isValid: true, credentials: user };
   },
 };
+
 

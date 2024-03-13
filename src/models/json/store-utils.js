@@ -6,4 +6,5 @@ export const db = await JSONFilePreset("./src/models/json/db.json", {
   details: [],
   images: [],
   reviews: [],
+  userLocations: [],
 });
