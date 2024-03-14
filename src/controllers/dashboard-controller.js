@@ -7,17 +7,20 @@ export const dashboardController = {
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials;
       const locations = await db.locationStore.getUserLocations(loggedInUser._id);
-      const setLocations = await db.locationStore.getSetLocations(); 
+      const setLocations = await db.locationStore.getSetLocations();
+      const selectedSetLocations = await db.locationStore.getSetLocationsByUser(loggedInUser._id);
+      const combinedLocations = [...locations, ...selectedSetLocations];
       const viewData = {
         title: "Location Dashboard",
         user: loggedInUser,
-        locations: locations,
+        locations: combinedLocations,
         setLocations: setLocations,
       };
       return h.view("dashboard-view", viewData);
     },
   },
 
+  // handler for add location form submission
   addLocation: {
     validate: {
       payload: LocationSpec,
@@ -27,13 +30,25 @@ export const dashboardController = {
       },
     },
     handler: async function (request, h) {
-      const loggedInUser = request.auth.credentials;
-      const newLocation = {
-        userid: loggedInUser._id,
-        title: request.payload.title,
-      };
-      const location = await db.locationStore.addLocation(newLocation);
-      return h.redirect(`/location/${location._id}/add-details`);
+      try {
+        const loggedInUser = request.auth.credentials;
+        const newLocation = {
+          userid: loggedInUser._id,
+          title: request.payload.title,
+        };
+        const location = await db.locationStore.addLocation(newLocation);
+
+        if (!location || !location._id) {
+          console.error('Failed to add new location:', newLocation);
+          return h.view("dashboard-view", { title: "Error Adding Location", error: 'Unexpected error occurred. Please try again.' });
+        }
+        
+        return h.redirect(`/dashboard`);
+      } catch (error) {
+        console.error('Error adding new location:', error);
+        
+        return h.view("dashboard-view", { title: "Error Adding Location", error: 'Unexpected error occurred. Please try again.' });
+      }
     },
   },
 
@@ -41,7 +56,7 @@ export const dashboardController = {
     handler: async function (request, h) {
       const location = await db.locationStore.getLocationById(request.params.id);
       await db.locationStore.deleteLocationById(location._id);
-      return h.redirect("/dashboard");
+      return h.redirect(`/dashboard`);
     },
   },
 
@@ -50,10 +65,9 @@ export const dashboardController = {
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials;
       const locationId = request.payload.locationId;
-       // return h.redirect(`/location-details/${locationId}`);
       try {
         await db.locationStore.addUserLocation(loggedInUser._id, locationId);
-        return h.redirect("/dashboard");
+        return h.redirect(`/dashboard`);
       } catch (error) {
         console.error('Error linking location to user:', error);
         return h.redirect("/dashboard?error=linkingFailed");

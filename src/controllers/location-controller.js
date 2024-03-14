@@ -1,3 +1,4 @@
+// import { func } from "joi";
 import { db } from "../models/db.js";
 import { LocationSpec } from "../models/joi-schemas.js";
 import { DetailSpec } from "../models/joi-schemas.js";
@@ -29,7 +30,7 @@ export const locationController = {
       // Define eircode REGEX
       const eircodeRegex = /([AC-FHKNPRTV-Y]\d{2}|D6W)[0-9AC-FHKNPRTV-Y]{4}/;
 
-      const { value, error } = LocationSpec.validate(request.payload);
+      const { value, error } = DetailSpec.validate(request.payload);
       if (error) {
         return h.redirect(`/location-form?error=${encodeURIComponent(error.details[0].message)}`);
       }
@@ -67,6 +68,21 @@ export const locationController = {
       };
   
       return h.view("location-details", viewData);
+    },
+  },
+
+  addDetailsForm: {
+    handler: async function (request, h) {
+      const locationId = request.params.id; 
+      const location = await db.locationStore.getLocationById(locationId);
+      if (!location) {
+        return h.redirect('/dashboard').takeover();
+      }
+      const viewData = {
+        title: "Add Location Details",
+        location: location,
+      };
+      return h.view("add-details", viewData);
     },
   },
 

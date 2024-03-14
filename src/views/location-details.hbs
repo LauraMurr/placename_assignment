@@ -7,34 +7,47 @@
   </div>
 </section>
 
-<table class="table is-fullwidth">
-  <thead>
-    <tr>
-      <th>Postcode</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th>Distance KM</th>
-      <th>Duration</th>
-      <th>Delete</th> 
-    </tr>
-  </thead>
-  <tbody>
-    {{#each details}}
-      <tr>
-        <td>{{postcode}}</td>
-        <td>{{latitude}}</td>
-        <td>{{longitude}}</td>
-        <td>{{distance}}</td>
-        <td>{{duration}}</td>
-        <td> 
-          <a href="/location/{{../location._id}}/deletedetails/{{_id}}" class="button">
-            <i class="fas fa-trash"></i>
-          </a>
-        </td>
-      </tr>
-    {{/each}}
-  </tbody>
-</table>
+<!-- Displaying the details table -->
+<section class="section">
+  <div class="container">
+    <table class="table is-fullwidth">
+      <thead>
+        <tr>
+          <th>Postcode</th>
+          <th>Latitude</th>
+          <th>Longitude</th>
+          <th>Distance KM</th>
+          <th>Duration</th>
+          <th>Delete</th> 
+        </tr>
+      </thead>
+      <tbody>
+        {{#each details}}
+          <tr>
+            <td>{{postcode}}</td>
+            <td>{{latitude}}</td>
+            <td>{{longitude}}</td>
+            <td>{{distance}}</td>
+            <td>{{duration}}</td>
+            <td> 
+              <a href="/location/{{../location._id}}/deletedetails/{{_id}}" class="button is-danger">
+                <i class="fas fa-trash"></i>
+              </a>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Add details form positioned below the table -->
+<section class="section">
+  <div class="container">
+    {{> add-details}}
+  </div>
+</section>
+
 <div class="container">
   <a href="/dashboard" class="button">Back</a>
 </div>

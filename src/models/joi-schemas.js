@@ -25,7 +25,7 @@ export const UserCredentialsSpec = {
     });
   
   
-  export const LocationSpec = {
-    title: Joi.string().required(),
-  };
+    export const LocationSpec = Joi.object({
+      title: Joi.string().required(),
+    });
   

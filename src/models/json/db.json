@@ -34,6 +34,13 @@
       "email": "test@simpson.com",
       "password": "test1234!AAA",
       "_id": "4ec1567d-0e23-44f6-b16a-80faa0022b22"
+    },
+    {
+      "firstName": "Testy",
+      "lastName": "Tester",
+      "email": "testy@simpson.com",
+      "password": "test1234!AAA!!",
+      "_id": "29553b84-1d56-438a-a116-a190dadcf9c0"
     }
   ],
   "locations": [
@@ -179,6 +186,34 @@
       "_id": "0cf9186e-3c94-48d6-a753-f24d14ed0d4c",
       "imagePath": "images/default.jpg",
       "isSetLocation": false
+    },
+    {
+      "userid": "29553b84-1d56-438a-a116-a190dadcf9c0",
+      "title": "test",
+      "_id": "c2c6fba8-3e13-4a54-9dd8-a0ea76e57bb5",
+      "imagePath": "images/default.jpg",
+      "isSetLocation": false
+    },
+    {
+      "userid": "29553b84-1d56-438a-a116-a190dadcf9c0",
+      "title": "test2",
+      "_id": "1673533b-f87c-4272-b2db-ef431ca50a33",
+      "imagePath": "images/default.jpg",
+      "isSetLocation": false
+    },
+    {
+      "userid": "29553b84-1d56-438a-a116-a190dadcf9c0",
+      "title": "test3",
+      "_id": "7e1eda7b-3393-49ce-ae00-2ff1366e8771",
+      "imagePath": "images/default.jpg",
+      "isSetLocation": false
+    },
+    {
+      "userid": "29553b84-1d56-438a-a116-a190dadcf9c0",
+      "title": "test4",
+      "_id": "b1125998-b88a-4e23-aa47-9cc1d6738849",
+      "imagePath": "images/default.jpg",
+      "isSetLocation": false
     }
   ],
   "details": [
@@ -226,8 +261,40 @@
       "duration": "<1hr",
       "_id": "c154d08c-bb17-41fe-9822-8eb9800f4eac",
       "isSetLocation": true
+    },
+    {
+      "title": "test",
+      "postcode": "W91W400",
+      "latitude": 52.25932,
+      "longitude": -7.11007,
+      "distance": "<1km",
+      "duration": "<1hr",
+      "_id": "26fd5897-e285-4d4c-b14e-097c6ad2c54c",
+      "locationid": "c2c6fba8-3e13-4a54-9dd8-a0ea76e57bb5"
     }
   ],
   "images": [],
-  "reviews": []
+  "reviews": [],
+  "userLocations": [
+    {
+      "_id": "3f58f493-3c7a-452d-a875-14b3e3ab9008",
+      "userId": "29553b84-1d56-438a-a116-a190dadcf9c0",
+      "locationId": "ff68ff1d-b227-4693-8c32-d1ce4633c1b2"
+    },
+    {
+      "_id": "6252d3ba-201f-4e40-8b85-51c239523da9",
+      "userId": "29553b84-1d56-438a-a116-a190dadcf9c0",
+      "locationId": "ff68ff1d-b227-4693-8c32-d1ce4633c1b2"
+    },
+    {
+      "_id": "45fba366-125f-4327-84f5-80277f7a455f",
+      "userId": "29553b84-1d56-438a-a116-a190dadcf9c0",
+      "locationId": "ff68ff1d-b227-4693-8c32-d1ce4633c1b2"
+    },
+    {
+      "_id": "4dda72a6-6531-4b6e-8289-384a7195f35c",
+      "userId": "29553b84-1d56-438a-a116-a190dadcf9c0",
+      "locationId": "41070df4-e05d-4dec-b492-23d7486dfea6"
+    }
+  ]
 }

@@ -15,8 +15,10 @@ export const locationJsonStore = {
     location.imagePath = location.imagePath || 'images/default.jpg';
     // locations added are user-created by default
     location.isSetLocation = location.isSetLocation || false;
+    console.log(`Adding new location:`, location);
     db.data.locations.push(location);
     await db.write();
+    console.log(`Location ${location._id} added successfully.`);
     return location;
   },
 
@@ -70,22 +72,42 @@ export const locationJsonStore = {
   // link user with set location
   async addUserLocation(userId, locationId) {
     await db.read();
+    console.log(`Checking if location ${locationId} exists for linking with user ${userId}.`);
+
     // check if location exists
     const locationExists = db.data.locations.some(location => location._id === locationId);
     if (!locationExists) {
+      console.error(`Location ${locationId} does not exist.`);
       throw new Error('Location does not exist.');
     }
+    // initialise userLocations
+    db.data.userLocations = db.data.userLocations || [];
+
     // check if user has this location on their list
       const userHasLocation = db.data.userLocations.some(ul => ul.userId === userId && ul.locationId === locationId);
-      if (!userHasLocation) {
+      if (userHasLocation) {
+        console.log(`User ${userId} already has location ${locationId}. No action needed.`);
         // Add a new user-location association
-        db.data.userLocations.push({
-          _id: v4(), // Unique ID for the association
-          userId: userId,
-          locationId: locationId
-        });    
-      await db.write();
+      } else {
+          console.log(`Linking location ${locationId} with user ${userId}.`);
+          db.data.userLocations.push({
+            _id: v4(), // form a uniqe user/location id
+            userId: userId,
+            locationId: locationId
+          });    
+          await db.write();
+          console.log(`Location ${locationId} linked with user ${userId}.`);
+      }
+    },
+
+    async getSetLocationsByUser(userId) {
+      await db.read();
+      // filter locations by using userLocations userId
+      const userLocationIds = db.data.userLocations.filter(ul => ul.userId === userId).map(ul => ul.locationId);
+      const selectedSetLocations = db.data.locations.filter(location => userLocationIds.includes(location._id) && location.isSetLocation === true);
+      return selectedSetLocations;
     }
-  },
+
+  
   
 };

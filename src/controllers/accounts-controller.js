@@ -1,6 +1,6 @@
 import { db } from "../models/db.js";
 import { UserSpec, } from "../models/joi-schemas.js";
-import { LocationSpec } from "../models/joi-schemas.js";
+
 
 
 export const accountsController = {
@@ -78,7 +78,7 @@ export const accountsController = {
         return h.redirect("/login?error=invalidcredentials");
       }
       request.cookieAuth.set({ id: user._id });
-      console.log('Session set for user:', request.auth.credentials);
+      console.log('Session set for user:', user);
       return h.redirect("/dashboard");
     },
   },
