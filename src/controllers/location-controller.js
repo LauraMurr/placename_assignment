@@ -54,12 +54,23 @@ export const locationController = {
     },
   },
 
-  locationDetails: {
+  locationDetails: { // for authenticated users
     handler: async function (request, h) {
-      const locationId = request.params.id; 
-      const location = await db.locationStore.getLocationById(locationId);
-      const details = await db.detailStore.getDetailsByLocationId(locationId); // Ensure this method exists in your details store
-  
+      const locationId = request.params.id;
+      
+      try {
+        const location = await db.locationStore.getLocationById(locationId);
+        if (!location) {
+          // If no location is found, return a 404 response
+          return h.view("error", {
+            title: "Location Not Found",
+            error: 'Location not found.',
+            isAuthenticated: request.auth.isAuthenticated
+          }).code(404);
+        }
+    
+      const details = await db.detailStore.getDetailsByLocationId(locationId); 
+
       const viewData = {
         title: "Location Details",
         location: location,
@@ -68,7 +79,51 @@ export const locationController = {
       };
   
       return h.view("location-details", viewData);
-    },
+    } catch (error) {
+      // Handle any other errors that might occur during fetching from the database
+      console.error('Error fetching location or details:', error);
+      return h.view("error", {
+        title: "Error",
+        error: 'An error occurred while fetching the location details.',
+        isAuthenticated: request.auth.isAuthenticated
+      }).code(500);
+    }
+   },
+  },
+
+  publicLocationDetails: { // for public access to locations
+    auth: false, 
+    handler: async function (request, h) {
+      const locationId = request.params.id;
+      try {
+        const location = await db.locationStore.getLocationById(locationId);
+        if (!location) {
+          return h.view("error", {
+            title: "Location Not Found",
+            error: 'Location not found.',
+            isAuthenticated: request.auth.isAuthenticated
+          }).code(404);
+        }
+
+        const details = await db.detailStore.getDetailsByLocationId(locationId);
+
+        const viewData = {
+          title: "Location Details",
+          location: location,
+          details: details,
+          isAuthenticated: request.auth.isAuthenticated,
+        };
+
+        return h.view("public-location-details", viewData);
+      } catch (error) {
+        console.error('Error fetching location or details:', error);
+        return h.view("error", {
+          title: "Error",
+          error: 'An error occurred while fetching the location details.',
+          isAuthenticated: request.auth.isAuthenticated
+        }).code(500);
+      }
+    }, 
   },
 
   addDetailsForm: {

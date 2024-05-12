@@ -29,25 +29,12 @@
             <td>{{longitude}}</td>
             <td>{{distance}}</td>
             <td>{{duration}}</td>
-            <td> 
-              <a href="/location/{{../location._id}}/deletedetails/{{_id}}" class="button is-danger" onclick="return confirm('Are you sure you want to delete this detail?');">
-                <i class="fas fa-trash"></i>
-              </a>
-            </td>
           </tr>
         {{/each}}
       </tbody>
     </table>
   </div>
 </section>
-
-<!-- Add details form positioned below the table -->
-<section class="section">
-  <div class="container">
-    {{> add-details}}
-  </div>
-</section>
-
 <div class="container">
   <a href="/dashboard" class="button">Back</a>
 </div>

@@ -3,6 +3,7 @@ import { LocationSpec } from "../models/joi-schemas.js";
 
 
 export const dashboardController = {
+  //Display dashboard with all locations associated with user
   index: {
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials;
@@ -20,7 +21,7 @@ export const dashboardController = {
     },
   },
 
-  // handler for add location form submission
+  // Handler for add location form submission
   addLocation: {
     validate: {
       payload: LocationSpec,
@@ -61,7 +62,7 @@ export const dashboardController = {
   },
 
   selectLocation: {
-    // allow a user to select a set location 
+    // allow a user to select a set location and add it to their list
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials;
       const locationId = request.payload.locationId;

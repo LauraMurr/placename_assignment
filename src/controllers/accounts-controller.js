@@ -1,42 +1,20 @@
 import { db } from "../models/db.js";
 import { UserSpec, } from "../models/joi-schemas.js";
 
+// Controller to manage user accounts: session validation, login, signup, logout
 
 
 export const accountsController = {
 
-  index: {
-    auth: false,
-    handler: async function (request, h) {
-      console.log('Is Authenticated:', request.auth.isAuthenticated);
-      console.log('Credentials:', request.auth.credentials);
-      try {
-        const setLocations = await db.locationStore.getSetLocations(); // Fetch all 'Set' locations
-        return h.view("main", {
-          title: "Welcome to West Wicklow Walks",
-          setLocations: setLocations, // Set locations are publicaly available on the home page
-          isAuthenticated: request.auth.isAuthenticated
-        });
-      } catch (error) {
-        console.error('Error fetching locations:', error);
-        // Error handling
-        return h.view("main", {
-          title: "Welcome to West Wicklow Walks",
-          error: 'Could not load locations. Please try again later.',
-          isAuthenticated: request.auth.isAuthenticated
-        });
-      }
-    },
-  },
-  
-
+  // Display the sign up form
   showSignup: {
     auth: false,
     handler: function (request, h) {
       return h.view("signup-view", { title: "Sign up" });
     },
   },
-
+  
+  // Signup handler to process sign up requests using Joi to validate against 'UserSpec' schema
   signup: {
     auth: false,
     validate: {
@@ -60,7 +38,8 @@ export const accountsController = {
       return h.redirect("dashboard");
     },
   },
-
+  
+  // Display the login view
   showLogin: {
     auth: false,
     handler: function (request, h) {
@@ -68,21 +47,25 @@ export const accountsController = {
     },
   },
 
+  // Handler to process user login requests
   login: {
     auth: false,
     handler: async function (request, h) {
       const { email, password } = request.payload;
       const user = await db.userStore.getUserByEmail(email);
+      // If the credentials are incorrect, it redirects to the login page with an error
       if (!user || user.password !== password) {
         request.log(['error', 'login'], `Failed login atttempt for email: ${email}`);
         return h.redirect("/login?error=invalidcredentials");
       }
+      // If correct, it sets up a session for the user and redirects to the dashboard
       request.cookieAuth.set({ id: user._id });
       console.log('Session set for user:', user);
       return h.redirect("/dashboard");
     },
   },
 
+  // Logs out the user
   logout: {
     auth: false,
     handler: function (request, h) {
@@ -91,6 +74,7 @@ export const accountsController = {
     },
   },
 
+  // Function to validate the session 
   validate: async function (request, session) {
     const user = await db.userStore.getUserById(session.id);
     if (!user) {
