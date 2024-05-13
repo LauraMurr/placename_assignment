@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="/public/css/main.css">
     <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/siema@1.5.1/dist/siema.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
+
+
     <style>
     body, html {
       background-color: #2d2d2d; /* Dark gray background */
@@ -24,5 +30,17 @@
       {{{content}}}
       {{> error }}
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          var mySiema = new Siema();
+
+          // Previous and Next buttons
+          document.querySelector('.prev').addEventListener('click', () => mySiema.prev());
+          document.querySelector('.next').addEventListener('click', () => mySiema.next());
+
+          // Function to change slide from thumbnails
+          window.changeSlide = (index) => mySiema.goTo(index);
+        });
+    </script>
   </body>
 </html>

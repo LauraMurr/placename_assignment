@@ -1,38 +1,61 @@
 {{> menu}}
 <section class="section">
   <div class="container">
-    <h1 class="title is-2 title-green">
+    <h1 class="title major-mono-display-regular title-green">
       {{location.title}}
     </h1>
   </div>
+  <div class="carousel-container">
+  <div class="siema">
+    <div class="image">
+      <img src="/public/images/hills.jpg" alt="First Slide">
+      <div class="image-caption">
+    Photo by John Dolan - July 12, 2023
+  </div>
+    </div>
+    <div class="image">
+      <img src="/public/images/Forest4.jpg" alt="Second Slide">
+      <div class="image-caption">
+    Photo by Anna Williams - May 1, 2023
+  </div>
+    </div>
+    <div class="image">
+      <img src="/public/images/lake2.jpg" alt="Third Slide">
+      <div class="image-caption">
+    Photo by Rachel Murray - June 10, 2023
+  </div>
+    </div>
+  </div>
+  <div class="buttons is-centered">
+  <button class="prev arrow">&#10094;</button>
+  <button class="next arrow">&#10095;</button> 
+</div>
+<div class="thumbnails">
+  <img src="/public/images/hills.jpg" alt="An image of hills" onclick="changeSlide(0)">
+  <img src="/public/images/Forest4.jpg" alt="An image of a forest" onclick="changeSlide(1)">
+  <img src="/public/images/lake2.jpg" alt="An image of a lake" onclick="changeSlide(2)">
+</div>
+
 </section>
 
-<!-- Displaying the details table -->
 <section class="section">
-  <div class="container">
-    <table class="table is-fullwidth">
-      <thead>
-        <tr>
-          <th>Postcode</th>
-          <th>Latitude</th>
-          <th>Longitude</th>
-          <th>Distance KM</th>
-          <th>Duration</th>
-          <th>Delete</th> 
-        </tr>
-      </thead>
-      <tbody>
-        {{#each details}}
-          <tr>
-            <td>{{postcode}}</td>
-            <td>{{latitude}}</td>
-            <td>{{longitude}}</td>
-            <td>{{distance}}</td>
-            <td>{{duration}}</td>
-          </tr>
-        {{/each}}
-      </tbody>
-    </table>
+  <div class="container detail-cards">
+    {{#each details}}
+    <div class="detail-card">
+      <h3 class="detail-title">Postcode</h3>
+      <p class="detail-info">{{postcode}}</p>
+      <h3 class="detail-title">Latitude</h3>
+      <p class="detail-info">{{latitude}}</p>
+      <h3 class="detail-title">Longitude</h3>
+      <p class="detail-info">{{longitude}}</p>
+      <h3 class="detail-title">Distance</h3>
+      <p class="detail-info">{{distance}} KM</p>
+      <h3 class="detail-title">Duration</h3>
+      <p class="detail-info">{{duration}}</p>
+      <!-- Assuming Delete is an action button -->
+      <button class="button is-danger delete-btn">Delete</button>
+    </div>
+    {{/each}}
   </div>
 </section>
 <div class="container">

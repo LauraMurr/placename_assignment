@@ -64,7 +64,7 @@
   border-color: #DCEDC2;
 }
 
-/* Locations containter */
+/* Locations container */
 .locations-container {
   display: flex;
   flex-wrap: wrap;
@@ -103,3 +103,161 @@ form .input-green {
 .welcome-menu-container {
   margin-bottom: 2rem; 
 }
+
+/* Photo carousel */
+
+.siema {
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.siema .image {
+  justify-content: center;
+  padding: 10%;
+  display: flex;
+}
+
+.siema img {
+  display: block;
+  width: 100%;  
+  height: auto; 
+}
+
+.carousel-container {
+  position: relative;
+  width: 90%; 
+  margin: auto; 
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background-color: #2d2d2d;
+  color: #fff; 
+  font-size: 64px; 
+  cursor: pointer;
+  z-index: 2;
+  padding: 10px;
+  border-radius: 90%;
+  box-shadow: 0 4px 8px #DCEDC2;
+}
+
+.arrow:hover {
+  color: #2d2d2d;
+  background-color: #DCEDC2; /* Darker background on hover */
+  box-shadow: 0 5px 15px #2d2d2d; /* More pronounced shadow on hover */
+}
+
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.thumbnails {
+  display: flex;
+  justify-content: center;
+  margin-top: -15px;
+  padding: 10px 0;
+  overflow-x: auto;
+}
+
+.thumbnails img {
+  width: 180px; 
+  height: auto;
+  margin-right: 6px;
+  cursor: pointer;
+}
+
+.thumbnails img:hover {
+  transform: scale(1.1); 
+  opacity: 0.8; 
+}
+
+.image-container {
+  text-align: center; /* Centers the content horizontally */
+  margin-bottom: 20px;
+}
+
+.image-container img {
+  width: 100%; 
+  height: auto; 
+  display: block; 
+  margin: 0 auto;
+}
+
+.image-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: #DCEDC2;
+  text-align: center;
+  padding: 5px 0; 
+  font-size: 1em; 
+}
+
+
+/* Fonts */
+.major-mono-display-regular {
+  font-family: "Major Mono Display", monospace; /* Ensure fallback to monospace if Google Fonts fail to load */
+  font-size: 4.5rem;
+  border-radius: 4px;
+  padding: 5px 10px; 
+  line-height: 2.2;
+  letter-spacing: 1px;
+}
+
+/* Details */
+
+.detail-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px; /* Spacing between cards */
+}
+
+.detail-card {
+  flex-basis: calc(33% - 20px); /* Three cards per row with spacing */
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.detail-title {
+  color: #4A4A4A;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.detail-info {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #3273dc; /* Bulma's link color for consistency */
+  margin-bottom: 10px;
+}
+
+.delete-btn {
+  margin-top: 10px; /* Space above the delete button */
+}
+
+@media (max-width: 768px) {
+  .detail-card {
+    flex-basis: 100%; /* Stack vertically on smaller screens */
+  }
+}
+
+
+
+
+
+
+
