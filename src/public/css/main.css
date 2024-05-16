@@ -1,9 +1,10 @@
 /* main.css */
 /* placename-brand.hbs*/
+
+
 .logo-image {
-    height: 270px; 
-    width: 100%;
-    justify-content: left;
+    height: 300px; 
+    width: 1380px;
     border: none;
     margin: 0; 
     padding: 0;
@@ -84,6 +85,10 @@
   color: #DCEDC2; 
 }
 
+.title-grey {
+  color: #2d2d2d;
+}
+
 
 .label-green {
   color: #DCEDC2; 
@@ -106,64 +111,71 @@ form .input-green {
 
 /* Photo carousel */
 
-.siema {
-  width: 100%;
+.carousel-container {
+  position: relative;
+  width: 100%; 
+  margin: auto; 
+  margin-bottom: 20px;
+}
+
+.image-carousel {
+  width: 80%;
   margin: auto;
+  display: flex;
   overflow: hidden;
 }
 
-.siema .image {
-  justify-content: center;
-  padding: 10%;
+.image-carousel .image {
+  flex: 0 0 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
+ 
 }
 
-.siema img {
+.image-carousel img {
   display: block;
   width: 100%;  
   height: auto; 
+  margin: 0;
 }
 
-.carousel-container {
-  position: relative;
-  width: 90%; 
-  margin: auto; 
-}
+
 
 .arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   border: none;
-  background-color: #2d2d2d;
-  color: #fff; 
-  font-size: 64px; 
+  background-color: #DCEDC2; 
+  color: #2d2d2d; 
+  font-size: 64px;
   cursor: pointer;
   z-index: 2;
   padding: 10px;
   border-radius: 90%;
-  box-shadow: 0 4px 8px #DCEDC2;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
 }
 
 .arrow:hover {
-  color: #2d2d2d;
-  background-color: #DCEDC2; /* Darker background on hover */
-  box-shadow: 0 5px 15px #2d2d2d; /* More pronounced shadow on hover */
+  color: #DCEDC2; 
+  background-color: #2d2d2d; 
+  box-shadow: 0 5px 15px rgba(0,0,0,0.25); 
 }
 
-
 .prev {
-  left: 10px;
+  left: -5px;
 }
 
 .next {
-  right: 10px;
+  right: -5px;
 }
+
 
 .thumbnails {
   display: flex;
   justify-content: center;
-  margin-top: -15px;
+  margin-top: 55px;
   padding: 10px 0;
   overflow-x: auto;
 }
@@ -173,23 +185,12 @@ form .input-green {
   height: auto;
   margin-right: 6px;
   cursor: pointer;
+  
 }
 
 .thumbnails img:hover {
   transform: scale(1.1); 
   opacity: 0.8; 
-}
-
-.image-container {
-  text-align: center; /* Centers the content horizontally */
-  margin-bottom: 20px;
-}
-
-.image-container img {
-  width: 100%; 
-  height: auto; 
-  display: block; 
-  margin: 0 auto;
 }
 
 .image-caption {
@@ -204,7 +205,7 @@ form .input-green {
 }
 
 
-/* Fonts */
+/* Font for Location Title */
 .major-mono-display-regular {
   font-family: "Major Mono Display", monospace; /* Ensure fallback to monospace if Google Fonts fail to load */
   font-size: 4.5rem;
@@ -212,6 +213,7 @@ form .input-green {
   padding: 5px 10px; 
   line-height: 2.2;
   letter-spacing: 1px;
+  margin-top: -30px;
 }
 
 /* Details */
@@ -220,29 +222,73 @@ form .input-green {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 20px; /* Spacing between cards */
+  gap: 20px; /* Maintains horizontal spacing between cards */
+  margin-bottom: 30px; /* Adds space below the container for all cards */
 }
 
 .detail-card {
-  flex-basis: calc(33% - 20px); /* Three cards per row with spacing */
+  flex: 1; /* Ensures that each card takes up equal space */
   background: #fff;
   padding: 20px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   border-radius: 8px;
   text-align: center;
+  min-height: 150px; /* Ensures minimum height for visual consistency */
+}
+
+/* Specific styling for the review card to add more vertical space */
+.review-card {
+  width: 100%; /* Takes full width of the container */
+  margin-top: 20px; /* Adds space above the review card */
+  padding: 20px; /* Ensures padding inside the review card */
+  background-color: transparent;
+  color: #DCEDC2;
+  font-style: italic;
+  border-radius: 8px;
+}
+
+.review-card p {
+  margin-bottom: 10px; /* Adds space between paragraphs */
+}
+
+.reviewer {
+  font-style: normal; /* Normal font style for reviewer */
+  color: #bbb; /* Slightly darker color for emphasis */
 }
 
 .detail-title {
+  font-family: "Major Mono Display", monospace;
   color: #4A4A4A;
-  font-size: 1rem;
+  font-size: 2rem;
   margin-bottom: 5px;
 }
 
 .detail-info {
-  font-size: 1.2rem;
+  font-family: monospace;
+  font-size: 1.6rem;
   font-weight: bold;
-  color: #3273dc; /* Bulma's link color for consistency */
+  background-color: #2d2d2d;
+  color: #DCEDC2; 
   margin-bottom: 10px;
+}
+
+.about-title {
+  font-size: 2rem;
+  font-family: monospace;
+  background-color: #DCEDC2;
+  color: #4A4A4A;
+  margin-bottom: 10px;
+  margin-top: -50px;
+}
+
+.about-text {
+  font-size: 1rem;
+  text-align:justify;
+  font-family: monospace;
+  color: #4A4A4A;
+  margin-bottom: 10px;
+  margin-top: 20px;
+
 }
 
 .delete-btn {
@@ -250,10 +296,108 @@ form .input-green {
 }
 
 @media (max-width: 768px) {
+  .detail-cards {
+    flex-direction: column;
+  }
+
   .detail-card {
-    flex-basis: 100%; /* Stack vertically on smaller screens */
+    flex-basis: 100%; /* Each card takes full width on smaller screens */
   }
 }
+
+/* Review settings */
+.review-carousel-container {
+  position: relative;
+  margin: auto;
+  overflow: visible;
+}
+
+.review-carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  overflow: visible;
+}
+
+.review-slide {
+  min-width: 100%; 
+  padding: 0px 100px;
+  box-sizing: border-box;
+  text-align: center;
+  overflow: visible;
+}
+
+.review-title {
+  font-family: monospace;
+  font-size: 2rem;
+  margin-bottom: 10px; 
+}
+
+.reviewer {
+  font-family: monospace;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.review-date {
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+.review-rating {
+  font-size: 2.5rem; 
+  margin-top: 10px; 
+}
+
+.star-rating {
+  color:#DCEDC2;
+  margin-bottom: 10px;
+}
+
+/* Review arrows */
+
+.prev-review {
+  left: -5px;
+}
+
+.next-review {
+  right: -5px;
+}
+
+
+/* Read-more settings */
+
+.review-content {
+  flex-grow: 3;
+  position: relative;
+  font-family: monospace;
+  font-style: italic;
+  font-size: 1.2rem;
+  text-align: justify;
+  margin-bottom: 30px; 
+  transition: max-height 0.5s ease;
+  
+}
+
+.review-content.collapsed {
+  max-height: 120px;
+  
+}
+
+.more-text {
+  display: none;
+  background:#2d2d2d; /* temporary cover-up to user name and date from view */
+}
+
+.read-more-link {
+  color: #3273dc;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+
+
 
 
 
