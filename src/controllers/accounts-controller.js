@@ -1,5 +1,6 @@
 import { db } from "../models/db.js";
 import { UserSpec, } from "../models/joi-schemas.js";
+import { User } from "../models/mongo/user.js";
 
 // Controller to manage user accounts: session validation, login, signup, logout
 

@@ -45,175 +45,22 @@
   ],
   "locations": [
     {
-      "title": "Glending",
-      "_id": "ff68ff1d-b227-4693-8c32-d1ce4633c1b2",
-      "imagePath": "images/Forest1.jpg",
+      "title": "hillwalk2",
+      "_id": "6ae09f07-f915-4ad7-8bee-1d9f8c222674",
+      "imagePath": "images/default.jpg",
+      "isSetLocation": false
+    },
+    {
+      "title": "hillwalk3",
+      "_id": "6a9f8bbf-59dd-4979-92e1-910bd6fc1fae",
+      "imagePath": "images/default.jpg",
+      "isSetLocation": false
+    },
+    {
+      "title": "hillwalk4",
+      "_id": "4bbe79a1-29d0-42b5-b14d-87384b464560",
+      "imagePath": "images/default.jpg",
       "isSetLocation": true
-    },
-    {
-      "title": "Avon",
-      "_id": "41070df4-e05d-4dec-b492-23d7486dfea6",
-      "imagePath": "images/Forest2.jpg",
-      "isSetLocation": true
-    },
-    {
-      "title": "Russelstown",
-      "_id": "7f7a3c0c-e589-42f9-9fb1-ea5f39159797",
-      "imagePath": "images/Forest3.jpg",
-      "isSetLocation": true
-    },
-    {
-      "title": "Russburough",
-      "_id": "7f7a3c0c-e589-42f9-9fb1-ea5f39159797",
-      "imagePath": "images/Forest4.jpg",
-      "isSetLocation": true
-    },
-    {
-      "userid": "568af6ed-2e89-4430-a9b0-9f849f5288e5",
-      "title": "Black Hill",
-      "_id": "c7592c24-bc1f-4da0-86c4-e0ce40744670",
-      "imagePath": "images/default.jpg",
-      "isSetLocation": false
-    },
-    {
-      "title": "Glending Test",
-      "_id": "bc6c9a85-8cfb-4c3a-9d4c-653a9f34de0e",
-      "imagePath": "images/Forest1.jpg",
-      "isSetLocation": false,
-      "userid": "568af6ed-2e89-4430-a9b0-9f849f5288e5"
-    },
-    {
-      "title": "Avon Test",
-      "_id": "ca642d63-20e7-452b-96f6-eecb77feff86",
-      "imagePath": "images/Forest2.jpg",
-      "isSetLocation": false,
-      "userid": "568af6ed-2e89-4430-a9b0-9f849f5288e5"
-    },
-    {
-      "title": "Glending",
-      "_id": "ef74e5ec-3c5b-4f22-83a3-e6cfd9dc0824",
-      "imagePath": "images/Forest1.jpg",
-      "isSetLocation": false,
-      "userid": "568af6ed-2e89-4430-a9b0-9f849f5288e5"
-    },
-    {
-      "title": "Glending",
-      "_id": "d00bcfae-b7ab-4dbc-a740-43fd67843713",
-      "imagePath": "images/Forest1.jpg",
-      "isSetLocation": false,
-      "userid": "4ec1567d-0e23-44f6-b16a-80faa0022b22"
-    },
-    {
-      "title": "Russelstown",
-      "_id": "f43faa59-fd15-4c66-97a6-3af60d21e26c",
-      "imagePath": "images/Forest3.jpg",
-      "isSetLocation": false,
-      "userid": "4ec1567d-0e23-44f6-b16a-80faa0022b22"
-    },
-    {
-      "title": "Avon",
-      "_id": "bdb643f7-cce0-4ace-9c12-70bdc1fa5c28",
-      "imagePath": "images/Forest2.jpg",
-      "isSetLocation": false,
-      "userid": "4ec1567d-0e23-44f6-b16a-80faa0022b22"
-    },
-    {
-      "userid": "4ec1567d-0e23-44f6-b16a-80faa0022b22",
-      "title": "tset",
-      "_id": "b5bb49ed-f254-447d-aa0c-2aaecc8afb40",
-      "imagePath": "images/default.jpg",
-      "isSetLocation": false
-    },
-    {
-      "userid": "4ec1567d-0e23-44f6-b16a-80faa0022b22",
-      "title": "TEst",
-      "_id": "30b640a0-d54f-4b9a-bfde-259a6a3065a1",
-      "imagePath": "images/default.jpg",
-      "isSetLocation": false
-    },
-    {
-      "userid": "4ec1567d-0e23-44f6-b16a-80faa0022b22",
-      "title": "Test2",
-      "_id": "ab808c46-a1f8-4317-b985-c04fbb843790",
-      "imagePath": "images/default.jpg",
-      "isSetLocation": false
-    },
-    {
-      "userid": "4ec1567d-0e23-44f6-b16a-80faa0022b22",
-      "title": "test3",
-      "_id": "27490927-9454-47e2-b82b-dd7e6e36f810",
-      "imagePath": "images/default.jpg",
-      "isSetLocation": false
-    },
-    {
-      "userid": "4ec1567d-0e23-44f6-b16a-80faa0022b22",
-      "title": "test3",
-      "_id": "6bfe4481-d12b-4f18-85b8-b0d44b139bfa",
-      "imagePath": "images/default.jpg",
-      "isSetLocation": false
-    },
-    {
-      "userid": "4ec1567d-0e23-44f6-b16a-80faa0022b22",
-      "title": "test3",
-      "_id": "c2683db9-3c69-404e-a694-f5b4906acf8c",
-      "imagePath": "images/default.jpg",
-      "isSetLocation": false
-    },
-    {
-      "userid": "4ec1567d-0e23-44f6-b16a-80faa0022b22",
-      "title": "test3",
-      "_id": "46c7c426-d976-49bc-a176-dd0c423423f6",
-      "imagePath": "images/default.jpg",
-      "isSetLocation": false
-    },
-    {
-      "userid": "4ec1567d-0e23-44f6-b16a-80faa0022b22",
-      "title": "test3",
-      "_id": "c67227a3-ef9a-4944-9477-374c1304f43a",
-      "imagePath": "images/default.jpg",
-      "isSetLocation": false
-    },
-    {
-      "userid": "4ec1567d-0e23-44f6-b16a-80faa0022b22",
-      "title": "test3",
-      "_id": "f123adb9-6bd8-46c9-90bf-1efe423c9040",
-      "imagePath": "images/default.jpg",
-      "isSetLocation": false
-    },
-    {
-      "userid": "4ec1567d-0e23-44f6-b16a-80faa0022b22",
-      "title": "txt",
-      "_id": "0cf9186e-3c94-48d6-a753-f24d14ed0d4c",
-      "imagePath": "images/default.jpg",
-      "isSetLocation": false
-    },
-    {
-      "userid": "29553b84-1d56-438a-a116-a190dadcf9c0",
-      "title": "test",
-      "_id": "c2c6fba8-3e13-4a54-9dd8-a0ea76e57bb5",
-      "imagePath": "images/default.jpg",
-      "isSetLocation": false
-    },
-    {
-      "userid": "29553b84-1d56-438a-a116-a190dadcf9c0",
-      "title": "test2",
-      "_id": "1673533b-f87c-4272-b2db-ef431ca50a33",
-      "imagePath": "images/default.jpg",
-      "isSetLocation": false
-    },
-    {
-      "userid": "29553b84-1d56-438a-a116-a190dadcf9c0",
-      "title": "test3",
-      "_id": "7e1eda7b-3393-49ce-ae00-2ff1366e8771",
-      "imagePath": "images/default.jpg",
-      "isSetLocation": false
-    },
-    {
-      "userid": "29553b84-1d56-438a-a116-a190dadcf9c0",
-      "title": "test4",
-      "_id": "b1125998-b88a-4e23-aa47-9cc1d6738849",
-      "imagePath": "images/default.jpg",
-      "isSetLocation": false
     }
   ],
   "details": [

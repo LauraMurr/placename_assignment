@@ -57,26 +57,25 @@
    
 
         // Function to change slide from thumbnails
-        window.changeSlide = (index) => mySiema.goTo(index);
        
+        document.querySelectorAll('.thumbnails img').forEach((thumbnail, index) => {
+          thumbnail.addEventListener('click', () => imageCarousel.goTo(index));
+        });
        
 
         // Read More Functionality
-        var readMoreLinks = document.querySelectorAll(' .read-more-link');
-
-        readMoreLinks.forEach(link => {
-            link.addEventListener('click', function (e) {
-              e.preventDefault();
-              const moreText = this.previousElementSibling;
-              const isExpanded = moreText.style.display === 'inline';
-
-              if (isExpanded) {
-                moreText.style.display = 'none';
-                this.textContent = 'read less...';
-              } else {
-                moreText.style.display = 'inline';
-                this.textContent = 'read more...';
-              }
+        document.querySelectorAll('.read-more-link').forEach(link => {
+          link.addEventListener('click', function (e) {
+            e.preventDefault();
+            var moreText = this.previousElementSibling;
+            var isCollapsed = moreText.style.display === 'none' || moreText.style.display === '';
+            if (isCollapsed) {
+              moreText.style.display = 'inline';  // Show the full text
+              this.textContent = 'read less...';  // Change the link text to 'read less...'
+            } else {
+              moreText.style.display = 'none';    // Hide the text again
+              this.textContent = 'read more...';  // Change the link text back to 'read more...'
+            }
             });
           });
         });

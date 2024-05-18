@@ -1,11 +1,15 @@
 import { assert } from "chai";
 import { db } from "../src/models/db.js";
 import { testLocations, hillwalk } from "./fixtures.js";
+import { assertSubset } from "./test-utils.js";
+import { EventEmitter } from "events"
 
 suite("Location Model tests", () => {
 
+  EventEmitter.setMaxListeners(25);
+
   setup(async () => {
-    db.init("json");
+    db.init("mongo");
     await db.locationStore.deleteAllLocations();
     for (let i = 0; i < testLocations.length; i += 1) {
         // eslint-disable-next-line no-await-in-loop
@@ -15,7 +19,7 @@ suite("Location Model tests", () => {
 
   test("create a location", async () => {
     const location = await db.locationStore.addLocation(hillwalk);
-    assert.deepEqual(location, hillwalk);
+    assertSubset(location, hillwalk);
     assert.isDefined(location._id);
   });
 
@@ -30,7 +34,7 @@ suite("Location Model tests", () => {
   test("get a location - success", async () => {
     const location = await db.locationStore.addLocation(hillwalk);
     const returnedLocation = await db.locationStore.getLocationById(location._id);
-    assert.equal(hillwalk, location);
+    assertSubset(hillwalk, location);
   });
 
   test("delete One Location - success", async () => {
@@ -52,4 +56,23 @@ suite("Location Model tests", () => {
     const allLocations = await db.locationStore.getAllLocations();
     assert.equal(testLocations.length, allLocations.length);
   });
+
+  test("get set locations", async () => {
+    // Adding a set location to the database
+    const setLocations = {
+      title: "Set Location",
+      isSetLocation: true,
+      imagePath: "images/set.jpg"
+    };
+    await db.locationStore.addLocation(setLocations);
+  
+    // Call the method that retrieves only set locations
+    const retrievedLocations = await db.locationStore.getSetLocations();
+  
+    // Assert that the retrieved locations are indeed set
+    assert.isTrue(retrievedLocations.every(loc => loc.isSetLocation), "All retrieved locations should be set locations.");
+    assert.strictEqual(retrievedLocations.length, 1, "There should be exactly one set location retrieved.");
+    assert.strictEqual(retrievedLocations[0].title, "Set Location", "The title of the retrieved location should match.");
+  });
+  
 });

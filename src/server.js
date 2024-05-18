@@ -70,7 +70,7 @@ async function init() {
     process.exit(1);
   }
   
-  db.init("json");
+  db.init("mongo");
   server.route(webRoutes);
   await server.start();
   console.log("Server running on %s", server.info.uri);
