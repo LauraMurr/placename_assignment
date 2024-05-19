@@ -10,6 +10,7 @@ import { userMongoStore } from "./mongo/user-mongo-store.js";
 import { connectMongo } from "./mongo/connect.js";
 import { locationMongoStore } from "./mongo/location-mongo-store.js";
 import { detailsMongoStore } from "./mongo/details-mongo-store.js";
+import { reviewsMongoStore } from "./mongo/review-mongo-store.js";
 
 
 export const db = {
@@ -32,7 +33,7 @@ export const db = {
       case "mongo":
         this.userStore = userMongoStore;
         //this.imageStore = imageMongoStore;
-        //this.reviewStore = reviewMongoStore;
+        this.reviewStore = reviewsMongoStore;
         this.locationStore = locationMongoStore;
         this.detailStore = detailsMongoStore;
         connectMongo();
