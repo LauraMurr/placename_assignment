@@ -2,39 +2,27 @@ import { User } from "./user.js";
 
 export const userMongoStore = {
   async getAllUsers() {
-    const users = await User.find().lean();
-    return users;
+    return await User.find().lean();
   },
 
   async getUserById(id) {
-    if (id) {
-      const user = await User.findOne({ _id: id }).lean();
-      return user;
-    }
-    return null;
+    return await User.findById(id).lean();
   },
 
   async addUser(user) {
     const newUser = new User(user);
-    const userObj = await newUser.save();
-    const u = await this.getUserById(userObj._id);
-    return u;
+    return await newUser.save();
   },
 
   async getUserByEmail(email) {
-    const user = await User.findOne({ email: email }).lean();
-    return user;
+    return await User.findOne({ email: new RegExp(`^${email}$`, 'i') }).lean(); // Case insensitive match
   },
 
   async deleteUserById(id) {
-    try {
-      await User.deleteOne({ _id: id });
-    } catch (error) {
-      console.log("bad id");
-    }
+    return await User.findByIdAndDelete(id);
   },
 
   async deleteAll() {
-    await User.deleteMany({});
+    return await User.deleteMany({});
   }
 };

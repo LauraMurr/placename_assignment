@@ -3,6 +3,8 @@ import { db } from "../src/models/db.js";
 import { testLocations, hillwalk } from "./fixtures.js";
 import { assertSubset } from "./test-utils.js";
 import { EventEmitter } from "events"
+import mongoose from 'mongoose';
+
 
 suite("Location Model tests", () => {
 
@@ -62,7 +64,7 @@ suite("Location Model tests", () => {
     const setLocations = {
       title: "Set Location",
       isSetLocation: true,
-      imagePath: "images/set.jpg"
+      imagePath: "images/default.jpg"
     };
     await db.locationStore.addLocation(setLocations);
   

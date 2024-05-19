@@ -27,16 +27,19 @@ export const accountsController = {
     },
     handler: async function (request, h) {
       const user = request.payload;
-      const existingUser = await db.userStore.getUserByEmail(user.email);
-      // Error handling in case user has already signed up
-      if (existingUser) {
-        const errorMessage = `A user with the email address ${user.email} already exists.`;
-        return h.view("signup-view", { title: "Sign up error", errors: [{ message: errorMessage }] }).takeover().code(400);
+      try {
+        const existingUser = await db.userStore.getUserByEmail(user.email);
+        if (existingUser) {
+          const errorMessage = `A user with the email address ${user.email} already exists.`;
+          return h.view("signup-view", { title: "Sign up error", errors: [{ message: errorMessage }] }).takeover().code(400);
+        }
+        const newUser = await db.userStore.addUser(user);
+        request.cookieAuth.set({ id: newUser._id });
+        return h.redirect("/dashboard");
+      } catch (error) {
+        console.error('Signup error:', error);
+        return h.view("signup-view", { title: "Database error", errors: [{ message: 'Database operation failed' }] }).takeover().code(500);
       }
-      const newUser = await db.userStore.addUser(user);
-      // automatically log new user in after they've signed up
-      request.cookieAuth.set({ id: newUser._id });
-      return h.redirect("dashboard");
     },
   },
   

@@ -48,13 +48,13 @@
       "title": "hillwalk2",
       "_id": "6ae09f07-f915-4ad7-8bee-1d9f8c222674",
       "imagePath": "images/default.jpg",
-      "isSetLocation": false
+      "isSetLocation": true
     },
     {
       "title": "hillwalk3",
       "_id": "6a9f8bbf-59dd-4979-92e1-910bd6fc1fae",
       "imagePath": "images/default.jpg",
-      "isSetLocation": false
+      "isSetLocation": true
     },
     {
       "title": "hillwalk4",

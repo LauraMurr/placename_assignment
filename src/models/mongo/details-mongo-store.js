@@ -1,5 +1,5 @@
-import Mongoose from 'mongoose';
 import { Detail } from "./details.js";
+import Mongoose from 'mongoose';
 
 export const detailsMongoStore = {
   async getAllDetails() {
@@ -7,30 +7,30 @@ export const detailsMongoStore = {
   },
 
   async addDetail(locationId, detailData) {
-    const detail = new Detail({
-      ...detailData,
-      locationId: locationId,
-    });
+    if (!Mongoose.Types.ObjectId.isValid(locationId)) {
+      return null; // Return null or handle as per your error policy
+    }
+    const detail = new Detail({ ...detailData, locationId });
     return await detail.save();
   },
 
   async getDetailsByLocationId(locationId) {
     if (!Mongoose.Types.ObjectId.isValid(locationId)) {
-      return null; // Return null or appropriate error response
+      return null;
     }
     return await Detail.find({ locationId }).lean();
   },
 
   async getDetailById(id) {
     if (!Mongoose.Types.ObjectId.isValid(id)) {
-      return null; // Return null or appropriate error response
+      return null;
     }
     return await Detail.findById(id).lean();
   },
 
   async deleteDetail(id) {
     if (!Mongoose.Types.ObjectId.isValid(id)) {
-      return null; // Return null or throw an error as per your error handling policy
+      return null;
     }
     return await Detail.findByIdAndDelete(id);
   },
@@ -41,9 +41,10 @@ export const detailsMongoStore = {
 
   async updateDetail(id, updatedDetail) {
     if (!Mongoose.Types.ObjectId.isValid(id)) {
-      return null; 
+      return null;
     }
     return await Detail.findByIdAndUpdate(id, updatedDetail, { new: true }).lean();
   },
 };
+
 

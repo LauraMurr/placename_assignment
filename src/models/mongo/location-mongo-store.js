@@ -9,18 +9,8 @@ export const locationMongoStore = {
   },
 
   async getLocationById(id) {
-    if (!id) return null;
-    const location = await Location.aggregate([
-      { $match: { _id: mongoose.Types.ObjectId(id) } },
-      { $lookup: {
-          from: "details", 
-          localField: "_id",
-          foreignField: "locationId",
-          as: "details"
-        }
-      }
-    ]);
-    return location[0] || null; 
+    const location = await Location.findById(id).lean();
+    return location;
   },
 
   async getSetLocations() {
@@ -28,33 +18,29 @@ export const locationMongoStore = {
     return setLocations;
   },
 
-
   async getSetLocationsByUser(userId) {
-    await db.read();
-    // filter locations by using userLocations userId
-    const userLocationIds = db.data.userLocations.filter(ul => ul.userId === userId).map(ul => ul.locationId);
-    const selectedSetLocations = db.data.locations.filter(location => userLocationIds.includes(location._id) && location.isSetLocation === true);
-    return selectedSetLocations;
+    // const setLocations = await Location.find({ userid: userId, isSetLocation: true }).lean();
+    // return setLocations;
+    if (!mongoose.Types.ObjectId.isValid(userId)) {
+      console.log("Invalid user ID");
+      return null;
+    }
+    return await Location.find({ userid: userId, isSetLocation: true }).lean();
   },
-
 
   async addLocation(location) {
     const newLocation = new Location(location);
-    const locationObj = await newLocation.save();
-    return this.getLocationById(locationObj._id);
+    await newLocation.save();
+    return this.getLocationById(newLocation._id);
   },
 
   async getUserLocations(userId) {
-    const locations = await Location.find({ user: userId }).lean();
+    const locations = await Location.find({ userid: userId }).lean();
     return locations;
   },
 
   async deleteLocationById(id) {
-    try {
-      await Location.deleteOne({ _id: id });
-    } catch (error) {
-      console.log("bad id");
-    }
+    await Location.deleteOne({ _id: id });
   },
 
   async deleteAllLocations() {
@@ -65,5 +51,4 @@ export const locationMongoStore = {
     const location = await Location.findByIdAndUpdate(id, updatedLocation, { new: true }).lean();
     return location;
   },
-
 };
