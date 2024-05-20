@@ -8,7 +8,7 @@ export const detailsMongoStore = {
 
   async addDetail(locationId, detailData) {
     if (!Mongoose.Types.ObjectId.isValid(locationId)) {
-      return null; // Return null or handle as per your error policy
+      return null; 
     }
     const detail = new Detail({ ...detailData, locationId });
     return await detail.save();

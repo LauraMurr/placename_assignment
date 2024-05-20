@@ -7,9 +7,9 @@ export function connectMongo() {
   Mongoose.set("strictQuery", true);
   Mongoose.connect(process.env.db);
   const db = Mongoose.connection;
-
   db.on("error", (err) => {
     console.log(`database connection error: ${err}`);
+    console.error('Database connection error: ${err}');
   });
 
   db.on("disconnected", () => {

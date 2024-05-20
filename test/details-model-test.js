@@ -2,7 +2,8 @@ import { assert } from "chai";
 import { db } from "../src/models/db.js";
 import { testDetails, sampleDetail } from "./fixtures.js";
 import { assertSubset } from "./test-utils.js";
-import { EventEmitter } from "events"
+import { EventEmitter } from "events";
+
 
 
 
@@ -15,7 +16,7 @@ suite("Detail Model tests", () => {
     await db.detailStore.deleteAllDetails();
     for (let i = 0; i < testDetails.length; i += 1) {
         // eslint-disable-next-line no-await-in-loop
-        testDetails[i] = await db.detailStore.addDetail(testDetails[i]);
+        await db.detailStore.addDetail(testDetails[i].locationId, testDetails[i]);
     }
   });
 
@@ -40,10 +41,17 @@ suite("Detail Model tests", () => {
   });
 
   test("delete one detail - success", async () => {
-    const id = testDetails[0]._id;
+    const allDetailsBefore = await db.detailStore.getAllDetails();
+    console.log("Details before deletion:", allDetailsBefore);
+
+    const id = allDetailsBefore[0]._id; // Use an existing ID from the database
     await db.detailStore.deleteDetail(id);
+    
     const returnedDetails = await db.detailStore.getAllDetails();
+    console.log("Details after deletion:", returnedDetails);
+
     assert.equal(returnedDetails.length, testDetails.length - 1);
+    
     const deletedDetail = await db.detailStore.getDetailById(id);
     assert.isNull(deletedDetail);
   });

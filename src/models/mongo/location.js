@@ -8,7 +8,7 @@ const reviewSchema = new Schema({
     content: String,
     rating: Number,
     date: { type: Date, default: Date.now }
-})
+  });
 
 const locationSchema = new Schema({
     title: { type: String, required: true },
@@ -20,7 +20,8 @@ const locationSchema = new Schema({
     longitude: { type: Number, required: true },
     distance: { type: String, required: true },  
     duration: { type: String, required: true },  
-    postcode: { type: String },  
+    postcode: { type: String },
+    reviews: [reviewSchema]  
 });
 
 export const Location = Mongoose.model("Location", locationSchema); 
