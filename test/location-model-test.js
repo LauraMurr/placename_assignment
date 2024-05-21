@@ -50,7 +50,7 @@ suite("Location Model tests", () => {
 
   test("get a location - bad params", async () => {
     assert.isNull(await db.locationStore.getLocationById(""));
-    assert.isNull(await db.locationStore.getLocationById(undefined));
+    assert.isNull(await db.locationStore.getLocationById("invalid-id"));
   });
 
   test("delete One Location - fail", async () => {
