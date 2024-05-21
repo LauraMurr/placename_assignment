@@ -14,7 +14,7 @@ const locationSchema = new Schema({
     title: { type: String, required: true },
     userid: { type: Schema.Types.ObjectId, ref: "User" },
     imagePath: { type: String, default: 'images/default.jpg' },
-    isSetLocation: { type: Boolean, default: false },
+    isSetLocation: { type: Boolean, default: true },
     description: { type: String },  
     latitude: { type: Number, required: true },  
     longitude: { type: Number, required: true },

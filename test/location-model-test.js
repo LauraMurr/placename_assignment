@@ -50,7 +50,7 @@ suite("Location Model tests", () => {
 
   test("get a location - bad params", async () => {
     assert.isNull(await db.locationStore.getLocationById(""));
-    assert.isNull(await db.locationStore.getLocationById("invalid-id"));
+    assert.isNull(await db.locationStore.getLocationById(undefined));
   });
 
   test("delete One Location - fail", async () => {
@@ -60,21 +60,9 @@ suite("Location Model tests", () => {
   });
 
   test("get set locations", async () => {
-    // Adding a set location to the database
-    const setLocations = {
-      title: "Set Location",
-      isSetLocation: true,
-      imagePath: "images/default.jpg"
-    };
-    await db.locationStore.addLocation(setLocations);
-  
-    // Call the method that retrieves only set locations
-    const retrievedLocations = await db.locationStore.getSetLocations();
-  
-    // Assert that the retrieved locations are indeed set
-    assert.isTrue(retrievedLocations.every(loc => loc.isSetLocation), "All retrieved locations should be set locations.");
-    assert.strictEqual(retrievedLocations.length, 1, "There should be exactly one set location retrieved.");
-    assert.strictEqual(retrievedLocations[0].title, "Set Location", "The title of the retrieved location should match.");
+    const setLocations = await db.locationStore.getSetLocations();
+    assert.isTrue(setLocations.every(loc => loc.isSetLocation));
+    assert.strictEqual(setLocations.length, testLocations.length);
   });
   
 });

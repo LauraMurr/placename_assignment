@@ -9,8 +9,10 @@ export const locationMongoStore = {
   },
 
   async getLocationById(id) {
-    const location = await Location.findById(id).lean();
-    return location;
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return null;
+    }
+    return await Location.findById(id).lean();
   },
 
   async getSetLocations() {
@@ -40,15 +42,24 @@ export const locationMongoStore = {
   },
 
   async deleteLocationById(id) {
-    await Location.deleteOne({ _id: id });
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return null;
+    }
+    return await Location.findByIdAndDelete(id);
   },
 
   async deleteAllLocations() {
     await Location.deleteMany({});
   },
 
-  async updateLocation(id, updatedLocation) {
+  /* async updateLocation(id, updatedLocation) {
     const location = await Location.findByIdAndUpdate(id, updatedLocation, { new: true }).lean();
     return location;
+  }, */
+  async updateLocation(id, updatedLocation) {
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return null;
+    }
+    return await Location.findByIdAndUpdate(id, updatedLocation, { new: true }).lean();
   },
 };
