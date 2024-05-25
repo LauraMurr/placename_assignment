@@ -1,0 +1,24 @@
+{{#if isAuthenticated}}
+<div class="container">
+  <h3 class="title is-my-green review-title">Add a Photo</h3>
+  <form action="/location/{{location._id}}/addphoto" method="POST" enctype="multipart/form-data">
+    <div class="field">
+      <label class="label">Photo</label>
+      <div class="control">
+        <input class="input" type="file" name="photo" required>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Caption</label>
+      <div class="control">
+        <input class="input" type="text" name="caption" placeholder="Photo caption">
+      </div>
+    </div>
+    <div class="field">
+      <div class="control">
+        <button class="button" type="submit">Upload Photo</button>
+      </div>
+    </div>
+  </form>
+</div>
+{{/if}}

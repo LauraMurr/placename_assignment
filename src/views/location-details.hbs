@@ -1,51 +1,41 @@
 {{> menu}}
-<section class="section">
+
+
+ <section class="section">
   <div class="container">
-    <h1 class="title is-2 title-green">
+     <h1 class="title major-mono-display-regular title-green">
       {{location.title}}
     </h1>
+    {{> add-review}}
+    {{> add-photo}}
   </div>
-</section>
 
-<!-- Displaying the details table -->
-<section class="section">
   <div class="container">
-    <table class="table is-fullwidth">
-      <thead>
-        <tr>
-          <th>Postcode</th>
-          <th>Latitude</th>
-          <th>Longitude</th>
-          <th>Distance KM</th>
-          <th>Duration</th>
-          <th>Delete</th> 
-        </tr>
-      </thead>
-      <tbody>
-        {{#each details}}
-          <tr>
-            <td>{{postcode}}</td>
-            <td>{{latitude}}</td>
-            <td>{{longitude}}</td>
-            <td>{{distance}}</td>
-            <td>{{duration}}</td>
-            <td> 
-              <a href="/location/{{../location._id}}/deletedetails/{{_id}}" class="button is-danger" onclick="return confirm('Are you sure you want to delete this detail?');">
-                <i class="fas fa-trash"></i>
-              </a>
-            </td>
-          </tr>
-        {{/each}}
-      </tbody>
-    </table>
-  </div>
-</section>
+    <h3 class="title is-my-green review-title">My Reviews</h3>
+    <!-- My Reviews Content Goes Here -->
+    <div class="my-reviews">
+      <!-- Sample review -->
+      <div class="review-card">
+        <h4 class="review-title">Sample Review Title</h4>
+        <p class="review-content">This is a sample review content...</p>
+      </div>
+      <!-- End of sample review -->
+    </div>
 
-<!-- Add details form positioned below the table -->
-<section class="section">
-  <div class="container">
-    {{> add-details}}
+    <h3 class="title is-my-green photo-title">My Photos</h3>
+    <!-- My Photos Content Goes Here -->
+    <div class="my-photos">
+      <!-- Sample photo -->
+      <div class="photo-card">
+        <img src="/public/images/sample-photo.jpg" alt="Sample Photo">
+        <p class="photo-caption">Sample Photo Caption</p>
+      </div>
+      <!-- End of sample photo -->
+    </div>
   </div>
+
+
+
 </section>
 
 <div class="container">
