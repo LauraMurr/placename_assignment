@@ -1,0 +1,43 @@
+{{> menu}}
+
+
+ <section class="section">
+  <div class="container">
+     <h1 class="title major-mono-display-regular title-green">
+      {{location.title}}
+    </h1>
+    {{> add-review}}
+    {{> add-photo}}
+  </div>
+
+  <div class="container">
+    <h3 class="title is-my-green review-title">My Reviews</h3>
+    <!-- My Reviews Content Goes Here -->
+    <div class="my-reviews">
+      <!-- Sample review -->
+      <div class="review-card">
+        <h4 class="review-title">Sample Review Title</h4>
+        <p class="review-content">This is a sample review content...</p>
+      </div>
+      <!-- End of sample review -->
+    </div>
+
+    <h3 class="title is-my-green photo-title">My Photos</h3>
+    <!-- My Photos Content Goes Here -->
+    <div class="my-photos">
+      <!-- Sample photo -->
+      <div class="photo-card">
+        <img src="/public/images/sample-photo.jpg" alt="Sample Photo">
+        <p class="photo-caption">Sample Photo Caption</p>
+      </div>
+      <!-- End of sample photo -->
+    </div>
+  </div>
+
+
+
+</section>
+
+<div class="container">
+  <a href="/dashboard" class="button">Back</a>
+</div>

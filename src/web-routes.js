@@ -26,7 +26,7 @@ export const webRoutes = [
     { method: "GET", path: "/location/{id}", config: locationController.index },
     { method: "GET", path: "/location/{id}/locationdetails", config: locationController.locationDetails },
     { method: "GET", path: "/public/location/{id}/publiclocationdetails", config: locationController.publicLocationDetails },
-      
+    { method: "GET", path: "/location/{id}/add-details-view", config: locationController.addDetailsView},
     { method: "POST", path: "/dashboard/selectlocation", config: dashboardController.selectLocation},
     { method: "GET", path: "/dashboard/deletelocation/{id}", config: dashboardController.deleteLocation },
     { method: "GET", path: "/location/{id}/deletedetails/{detailid}", config: locationController.deleteDetail },

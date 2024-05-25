@@ -1,4 +1,9 @@
-{{> welcome-menu}}
+{{#if isAuthenticated}}
+  {{> menu}}
+{{else}}
+  {{> welcome-menu}}
+{{/if}}
+
 <section class="section">
   <div class="container detail-cards">
      <div class="detail-card about-card">  <!-- Title & About -->

@@ -1,16 +1,91 @@
 {{> menu}}
+<section class="section">
+  <div class="container detail-cards">
+    <div class="detail-card about-card">
+      <h1 class="title major-mono-display-regular title-grey">
+        {{location.title}}
+      </h1>
+      <h3 class="about-title">About the Walk</h3>
+       <p class="about-text"> Nestled on the picturesque border between County Wicklow and Kildare, Glending Walk offers a serene escape into nature, just outside of Blessington. This tranquil walking trail winds through lush forests and open landscapes, showcasing the natural beauty of Ireland’s countryside. Ideal for walkers of all levels, the path is well-maintained and promises stunning views and peaceful moments. Whether you’re looking for a leisurely stroll or a vigorous hike, Glending Walk provides a perfect setting to reconnect with nature and enjoy the calming presence of the great outdoors.</p>
+      </div>
+    
 
-
- <section class="section">
-  <div class="container">
-     <h1 class="title major-mono-display-regular title-green">
-      {{location.title}}
-    </h1>
-    {{> add-review}}
-    {{> add-photo}}
+    <div class="detail-card">
+      {{#each details}}
+        <h3 class="detail-title">Postcode</h3>
+        <p class="detail-info">{{postcode}}</p>
+        <h3 class="detail-title">Latitude</h3>
+        <p class="detail-info">{{latitude}}</p>
+        <h3 class="detail-title">Longitude</h3>
+        <p class="detail-info">{{longitude}}</p>
+        <h3 class="detail-title">Distance</h3>
+        <p class="detail-info">{{distance}} KM</p>
+        <h3 class="detail-title">Duration</h3>
+        <p class="detail-info">{{duration}}</p>
+      {{/each}}
+    </div>
   </div>
 
-  <div class="container">
+  <div class="carousel-container">
+    <div class="review-carousel">
+      <div class="review-slide">
+      <div class="star-rating is-size-3">★★★★★</div>
+      <h3 class="review-title">"A Refreshing Walk in Nature's Embrace"</h3>
+      <p class="review-content">
+        "Glending Walk is a true gem tucked away just outside Blessington, and it has quickly become one of my favorite hiking spots. The trail is well-marked and offers a variety of terrains that are suitable for both beginners and seasoned hikers. 
+        <span class="more-text"> The panoramic views of the Wicklow countryside are absolutely breathtaking, especially during the early morning when the mist hangs low over the fields. The forest sections are lush and offer a great canopy of shade on sunny days, making it a perfect year-round destination. Wildlife is abundant, and I’ve spotted deer, foxes, and numerous bird species on my visits. Highly recommend for anyone looking to escape the hustle and bustle of the city and immerse themselves in the tranquility of nature."</span>
+        <a href="#" class="read-more-link">read more...</a>
+      </p>
+      <p class="reviewer">Reviewed by Emma Thompson</p>
+      <p class="review-date">May 15, 2024</p>
+    </div>
+      {{#each reviews}}
+        <div class="review-slide">
+          <div class="star-rating">{{stars this.rating}}</div>
+          <h3 class="review-title">"{{title}}"</h3>
+          <p class="review-content">
+            {{truncate content 250}}
+            <span class="more-text">{{slice content 250}}</span>
+            <a href="#" class="read-more-link">read more...</a>
+          </p>
+          <p class="reviewer">Reviewed by {{user}}</p>
+          <p class="review-date">{{date}}</p>
+        </div>
+      {{else}}
+        <div class="review-slide">No other reviews yet.</div>
+      {{/each}}
+    </div>
+    <button class="prev-review arrow">&#10094;</button>
+    <button class="next-review arrow">&#10095;</button>
+  </div>
+
+  <div class="carousel-container">
+    <div class="image-carousel">
+      <div class="image">
+        <img src="/public/images/hills.jpg" alt="First Slide">
+        <div class="image-caption">Photo by John Dolan - July 12, 2023</div>
+      </div>
+      <div class="image">
+        <img src="/public/images/Forest4.jpg" alt="Second Slide">
+        <div class="image-caption">Photo by Anna Williams - May 1, 2023</div>
+      </div>
+      <div class="image">
+        <img src="/public/images/lake2.jpg" alt="Third Slide">
+        <div class="image-caption">Photo by Rachel Murray - June 10, 2023</div>
+      </div>
+    </div>
+    <div class="buttons is-centered">
+      <button class="prev arrow">&#10094;</button>
+      <button class="next arrow">&#10095;</button>
+    </div>
+    <div class="thumbnails">
+      <img src="/public/images/hills.jpg" alt="An image of hills" onclick="changeSlide(0)">
+      <img src="/public/images/Forest4.jpg" alt="An image of a forest" onclick="changeSlide(1)">
+      <img src="/public/images/lake2.jpg" alt="An image of a lake" onclick="changeSlide(2)">
+    </div>
+  </div>
+
+<div class="container">
     <h3 class="title is-my-green review-title">My Reviews</h3>
     <!-- My Reviews Content Goes Here -->
     <div class="my-reviews">
@@ -33,7 +108,6 @@
       <!-- End of sample photo -->
     </div>
   </div>
-
 
 
 </section>

@@ -16,6 +16,38 @@ export const locationController = {
     },
   },
 
+  addDetailsView: { // handler for rendering the add-details-view
+    handler: async function (request, h) {
+      const locationId = request.params.id;
+
+      try {
+        const location = await db.locationStore.getLocationById(locationId);
+        if (!location) {
+          return h.view("error", {
+            title: "Location Not Found",
+            error: 'Location not found.',
+            isAuthenticated: request.auth.isAuthenticated
+          }).code(404);
+        }
+
+        const viewData = {
+          title: "Add Details",
+          location: location,
+          isAuthenticated: request.auth.isAuthenticated,
+        };
+
+        return h.view("add-details-view", viewData);
+      } catch (error) {
+        console.error('Error fetching location:', error);
+        return h.view("error", {
+          title: "Error",
+          error: 'An error occurred while fetching the location.',
+          isAuthenticated: request.auth.isAuthenticated
+        }).code(500);
+      }
+    },
+  },
+
   addLocationDetails: {
     validate: {
       payload: DetailSpec,
