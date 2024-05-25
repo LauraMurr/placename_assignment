@@ -1,6 +1,5 @@
 // import { func } from "joi";
 import { db } from "../models/db.js";
-import { LocationSpec } from "../models/joi-schemas.js";
 import { DetailSpec } from "../models/joi-schemas.js";
 
 

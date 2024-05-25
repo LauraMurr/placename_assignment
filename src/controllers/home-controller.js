@@ -1,5 +1,5 @@
 import { db } from "../models/db.js";
-import { LocationSpec } from "../models/joi-schemas.js";
+// import { LocationSpec } from "../models/joi-schemas.js";
 
 // Controller to manage the home page which publicly displays the locations
 

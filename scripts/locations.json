@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Glending",
+    "imagePath": "images/Forest1.jpg",
+    "_id": "ff68ff1d-b227-4693-8c32-d1ce4633c1b2",
+    "isSetLocation": true
+  },
+  {
+    "title": "Avon",
+    "imagePath": "images/Forest2.jpg",
+    "_id": "41070df4-e05d-4dec-b492-23d7486dfea6",
+    "isSetLocation": true
+  },
+  {
+    "title": "Russelstown",
+    "imagePath": "images/Forest3.jpg",
+    "_id": "7f7a3c0c-e589-42f9-9fb1-ea5f39159797",
+    "isSetLocation": true
+  },
+  {
+    "title": "Russborough",
+    "imagePath": "images/Forest4.jpg",
+    "_id": "7c154d08c-bb17-41fe-9822-8eb9800f4eac",
+    "isSetLocation": true
+  }
+]

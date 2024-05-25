@@ -27,54 +27,46 @@
       "email": "laura@simpson.com",
       "password": "test",
       "_id": "568af6ed-2e89-4430-a9b0-9f849f5288e5"
-    },
-    {
-      "firstName": "New",
-      "lastName": "User",
-      "email": "test@simpson.com",
-      "password": "test1234!AAA",
-      "_id": "4ec1567d-0e23-44f6-b16a-80faa0022b22"
-    },
-    {
-      "firstName": "Testy",
-      "lastName": "Tester",
-      "email": "testy@simpson.com",
-      "password": "test1234!AAA!!",
-      "_id": "29553b84-1d56-438a-a116-a190dadcf9c0"
     }
   ],
+
   "locations": [
-    {
-      "title": "hillwalk2",
-      "_id": "6ae09f07-f915-4ad7-8bee-1d9f8c222674",
-      "imagePath": "images/default.jpg",
-      "isSetLocation": true
-    },
-    {
-      "title": "hillwalk3",
-      "_id": "6a9f8bbf-59dd-4979-92e1-910bd6fc1fae",
-      "imagePath": "images/default.jpg",
-      "isSetLocation": true
-    },
-    {
-      "title": "hillwalk4",
-      "_id": "4bbe79a1-29d0-42b5-b14d-87384b464560",
-      "imagePath": "images/default.jpg",
-      "isSetLocation": true
-    }
-  ],
-  "details": [
     {
       "title": "Glending",
       "imagePath": "images/Forest1.jpg",
+      "_id": "ff68ff1d-b227-4693-8c32-d1ce4633c1b2",
+      "isSetLocation": true
+    },
+    {
+      "title": "Avon",
+      "imagePath": "images/Forest2.jpg",
+      "_id": "41070df4-e05d-4dec-b492-23d7486dfea6",
+      "isSetLocation": true
+    },
+    {
+      "title": "Russelstown",
+      "imagePath": "images/Forest3.jpg",
+      "_id": "7f7a3c0c-e589-42f9-9fb1-ea5f39159797",
+      "isSetLocation": true
+    },
+    {
+      "title": "Russborough",
+      "imagePath": "images/Forest4.jpg",
+      "_id": "7c154d08c-bb17-41fe-9822-8eb9800f4eac",
+      "isSetLocation": true
+    }
+  ],
+
+  "details": [
+    {
+      "title": "Glending",
       "locationid": "ff68ff1d-b227-4693-8c32-d1ce4633c1b2",
       "postcode": "null",
       "latitude": 52.25932,
       "longitude": -7.11007,
       "distance": "<1km",
       "duration": "<1hr",
-      "_id": "3df6c688-987b-4b9f-8b06-6762c3a03a0e",
-      "isSetLocation": true
+      "_id": "3df6c688-987b-4b9f-8b06-6762c3a03a0e"
     },
     {
       "title": "Avon",
@@ -84,8 +76,7 @@
       "longitude": -7.11007,
       "distance": "3-5km",
       "duration": "<1hr",
-      "_id": "266d1447-f721-4a55-9d55-da5ab1ac1fb8",
-      "isSetLocation": true
+      "_id": "266d1447-f721-4a55-9d55-da5ab1ac1fb8"
     },
     {
       "title": "Russelstown",
@@ -95,8 +86,7 @@
       "longitude": -7.11007,
       "distance": "<1km",
       "duration": "<1hr",
-      "_id": "829ce2bd-d261-477b-8009-e2a90bb0cc76",
-      "isSetLocation": true
+      "_id": "829ce2bd-d261-477b-8009-e2a90bb0cc76"
     },
     {
       "title": "Russborough",
@@ -106,22 +96,47 @@
       "longitude": -7.11007,
       "distance": "<1km",
       "duration": "<1hr",
-      "_id": "c154d08c-bb17-41fe-9822-8eb9800f4eac",
-      "isSetLocation": true
-    },
-    {
-      "title": "test",
-      "postcode": "W91W400",
-      "latitude": 52.25932,
-      "longitude": -7.11007,
-      "distance": "<1km",
-      "duration": "<1hr",
-      "_id": "26fd5897-e285-4d4c-b14e-097c6ad2c54c",
-      "locationid": "c2c6fba8-3e13-4a54-9dd8-a0ea76e57bb5"
+      "_id": "c154d08c-bb17-41fe-9822-8eb9800f4eac"
     }
   ],
+
   "images": [],
-  "reviews": [],
+
+  "reviews": [
+    {
+      "user": "bc410768-75a7-44a3-8994-50d5eb02c374",
+      "locationId": "ff68ff1d-b227-4693-8c32-d1ce4633c1b2",
+      "title": "Great Walk!",
+      "content": "I really enjoyed this walk. The scenery was beautiful, and it was a refreshing experience.",
+      "rating": 5,
+      "date": "2023-01-01T00:00:00Z"
+    },
+    {
+      "user": "01ffc1ce-110d-4d11-a331-ff6482bcfe5f",
+      "locationId": "41070df4-e05d-4dec-b492-23d7486dfea6",
+      "title": "Amazing Experience",
+      "content": "This was one of the best walks I've ever been on. The trail is well-maintained and the views are spectacular.",
+      "rating": 5,
+      "date": "2023-02-01T00:00:00Z"
+    },
+    {
+      "user": "f95deb4c-9f92-4c06-b89d-053ecd787bb8",
+      "locationId": "7f7a3c0c-e589-42f9-9fb1-ea5f39159797",
+      "title": "Peaceful and Relaxing",
+      "content": "I loved the tranquility of this place. It's perfect for a weekend getaway.",
+      "rating": 4,
+      "date": "2023-03-01T00:00:00Z"
+    },
+    {
+      "user": "568af6ed-2e89-4430-a9b0-9f849f5288e5",
+      "locationId": "c154d08c-bb17-41fe-9822-8eb9800f4eac",
+      "title": "Fun for the Whole Family",
+      "content": "Great walk for families. The kids had a blast and we enjoyed the scenic route.",
+      "rating": 5,
+      "date": "2023-04-01T00:00:00Z"
+    }
+  ],
+
   "userLocations": [
     {
       "_id": "3f58f493-3c7a-452d-a875-14b3e3ab9008",

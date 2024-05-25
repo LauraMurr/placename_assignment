@@ -24,28 +24,7 @@
     </div>
   </div>
   
-  <div class="review-carousel-container">
-    <div class="review-carousel">
-      <!-- Dynamic Reviews -->
-      {{#each location.reviews}}
-      <div class="review-slide">
-        <div class="star-rating">{{stars this.rating}}</div> <!-- Convert numeric ratings to stars -->
-        <h3 class="review-title">"{{this.title}}"</h3>
-        <p class="review-content">
-          {{truncate this.content 250}}
-          <span class="more-text">{{slice this.content 250}}</span>
-          <a href="#" class="read-more-link">read more...</a>
-        </p>
-        <p class="reviewer">Reviewed by {{this.user}}</p>
-        <p class="review-date">{{this.date}}</p>
-      </div>
-      {{else}}
-      <div class="review-slide">No other reviews yet.</div>
-      {{/each}}
-    </div>
-    <button class="prev-review arrow">&#10094;</button>
-    <button class="next-review arrow">&#10095;</button>
-  </div>
+   
 </section>
 
 

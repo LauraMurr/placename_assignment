@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Glending",
+    "locationid": "ff68ff1d-b227-4693-8c32-d1ce4633c1b2",
+    "postcode": "null",
+    "latitude": 52.25932,
+    "longitude": -7.11007,
+    "distance": "<1km",
+    "duration": "<1hr",
+    "_id": "3df6c688-987b-4b9f-8b06-6762c3a03a0e"
+  },
+  {
+    "title": "Avon",
+    "locationId": "41070df4-e05d-4dec-b492-23d7486dfea6",
+    "postcode": "W91HFX3",
+    "latitude": 52.25932,
+    "longitude": -7.11007,
+    "distance": "3-5km",
+    "duration": "<1hr",
+    "_id": "266d1447-f721-4a55-9d55-da5ab1ac1fb8"
+  },
+  {
+    "title": "Russelstown",
+    "locationId": "7f7a3c0c-e589-42f9-9fb1-ea5f39159797",
+    "postcode": null,
+    "latitude": 52.25932,
+    "longitude": -7.11007,
+    "distance": "<1km",
+    "duration": "<1hr",
+    "_id": "829ce2bd-d261-477b-8009-e2a90bb0cc76"
+  },
+  {
+    "title": "Russborough",
+    "locationId": "7f7a3c0c-e589-42f9-9fb1-ea5f39159797",
+    "postcode": null,
+    "latitude": 52.25932,
+    "longitude": -7.11007,
+    "distance": "<1km",
+    "duration": "<1hr",
+    "_id": "c154d08c-bb17-41fe-9822-8eb9800f4eac"
+  }
+]
