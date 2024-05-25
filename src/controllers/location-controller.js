@@ -94,17 +94,19 @@ export const locationController = {
         const location = await db.locationStore.getLocationById(locationId);
         if (!location) {
           // If no location is found, return a 404 response
+          console.log('Location not found', locationId);
           return h.view("error", {
             title: "Location Not Found",
             error: 'Location not found.',
             isAuthenticated: request.auth.isAuthenticated
           }).code(404);
         }
-    
-      const details = await db.detailStore.getDetailsByLocationId(locationId); 
+    // Fetch details for the location
+      const details = await db.detailStore.getDetailsByLocationId(locationId);
+      console.log('Fetched detials for location: ', details); 
 
       const viewData = {
-        title: "Location Details",
+        title: "Details",
         location: location,
         details: details,
         isAuthenticated: request.auth.isAuthenticated,
@@ -130,17 +132,19 @@ export const locationController = {
       try {
         const location = await db.locationStore.getLocationById(locationId);
         if (!location) {
+          console.log('Location not found:', locationId);
           return h.view("error", {
             title: "Location Not Found",
             error: 'Location not found.',
             isAuthenticated: request.auth.isAuthenticated
           }).code(404);
         }
-
+        // Fetch details for the given location
         const details = await db.detailStore.getDetailsByLocationId(locationId);
-
+        console.log('Fetched details for location:', details);
+        
         const viewData = {
-          title: "Location Details",
+          title: "Details",
           location: location,
           details: details,
           isAuthenticated: request.auth.isAuthenticated,

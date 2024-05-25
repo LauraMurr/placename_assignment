@@ -32,7 +32,7 @@ async function init() {
       password: "secretpasswordnotrevealedtoanyone",
       isSecure: false,
     },
-    redirectTo: "/",
+    redirectTo: "/login",
     validate: accountsController.validate,
   });
     server.auth.default("session");

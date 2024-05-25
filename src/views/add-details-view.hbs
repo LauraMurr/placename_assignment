@@ -6,6 +6,7 @@
      <h1 class="title major-mono-display-regular title-green">
       {{location.title}}
     </h1>
+    {{> add-details}}
     {{> add-review}}
     {{> add-photo}}
   </div>
@@ -21,6 +22,12 @@
       </div>
       <!-- End of sample review -->
     </div>
+     <a href="/dashboard/deletelocation/{{_id}}" class="button">
+              <span class="icon is-small">
+                <i class="fas fa-trash"></i>
+              </span>
+              <span>Delete Review</span>
+            </a>
 
     <h3 class="title is-my-green photo-title">My Photos</h3>
     <!-- My Photos Content Goes Here -->
@@ -33,6 +40,12 @@
       <!-- End of sample photo -->
     </div>
   </div>
+   <a href="/dashboard/deletelocation/{{_id}}" class="button">
+              <span class="icon is-small">
+                <i class="fas fa-trash"></i>
+              </span>
+              <span>Delete Photo</span>
+            </a>
 
 
 

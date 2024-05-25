@@ -70,6 +70,7 @@ export const accountsController = {
     auth: false,
     handler: function (request, h) {
       request.cookieAuth.clear();
+      console.log('Logged out')
       return h.redirect("/");
     },
   },

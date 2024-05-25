@@ -10,7 +10,7 @@ export const detailsJsonStore = {
   async addDetail(locationId, detail) {
     await db.read();
     detail._id = v4();
-    detail.locationid = locationId;
+    detail.locationId = locationId;
     db.data.details.push(detail);
     await db.write();
     return detail;
@@ -18,7 +18,7 @@ export const detailsJsonStore = {
 
   async getDetailsByLocationId(id) {
     await db.read();
-    return db.data.details.filter((detail) => detail.locationid === id);
+    return db.data.details.filter((detail) => detail.locationId === id);
   },
 
   async getDetailById(id) {
@@ -45,5 +45,8 @@ export const detailsJsonStore = {
     detail.longitude = updatedDetail.longitude;
     detail.distance = updatedDetail.distance;
     detail.duration = updatedDetail.duration;
+   // detail.imagePath = updatedDetail.imagePath; 
+    detail.isSetLocation = updatedDetail.isSetLocation;
+    detail.isPublic = updatedDetail.isPublic;
   },
 };
