@@ -35,7 +35,10 @@ export const locationJsonStore = {
 
   async getSetLocations() {
     await db.read();
-    return db.data.locations.filter(location => location.isSetLocation === true);
+    //return db.data.locations.filter(location => location.isSetLocation === true);
+    const locations = db.data.locations.filter(location => location.isSetLocation);
+    console.log('Set locations:', locations);
+    return locations;
   },
 
   async getUserLocations(userid) {

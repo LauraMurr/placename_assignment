@@ -1,7 +1,8 @@
 // import { func } from "joi";
 import { db } from "../models/db.js";
-import { LocationSpec } from "../models/joi-schemas.js";
+import { detailsJsonStore } from "../models/json/details-json-store.js";
 import { DetailSpec } from "../models/joi-schemas.js";
+
 
 
 export const locationController = {
@@ -86,12 +87,15 @@ export const locationController = {
     },
   },
 
-  locationDetails: { // for authenticated users
+  // handler for authenticated users
+  locationDetails: { 
     handler: async function (request, h) {
       const locationId = request.params.id;
       
       try {
+        console.log('Fetching details for location ID:', locationId);
         const location = await db.locationStore.getLocationById(locationId);
+        console.log('Fetched location:', location);
         if (!location) {
           // If no location is found, return a 404 response
           console.log('Location not found', locationId);
@@ -102,7 +106,7 @@ export const locationController = {
           }).code(404);
         }
     // Fetch details for the location
-      const details = await db.detailStore.getDetailsByLocationId(locationId);
+      const details = await detailsJsonStore.getDetailsByLocationId(locationId);
       console.log('Fetched detials for location: ', details); 
 
       const viewData = {
@@ -140,9 +144,10 @@ export const locationController = {
           }).code(404);
         }
         // Fetch details for the given location
-        const details = await db.detailStore.getDetailsByLocationId(locationId);
-        console.log('Fetched details for location:', details);
-        
+        const details = await detailsJsonStore.getDetailsByLocationId(locationId);
+        //const details = await db.detailStore.getDetailsByLocationId(locationId);
+        console.log('Fetched details for Set location:', details);
+
         const viewData = {
           title: "Details",
           location: location,

@@ -1,6 +1,16 @@
 import { v4 } from "uuid";
 import { db } from "./store-utils.js";
 
+
+// Unified method to get details by location ID
+async function getDetailsByLocationId(id) {
+  await db.read();
+  console.log('Database details:', db.data.details);
+  const details = db.data.details.filter((detail) => detail.locationId === id);
+  console.log('Fetched details for location id:', id, details);
+  return details;
+}
+
 export const detailsJsonStore = {
   async getAllDetails() {
     await db.read();
@@ -18,7 +28,11 @@ export const detailsJsonStore = {
 
   async getDetailsByLocationId(id) {
     await db.read();
-    return db.data.details.filter((detail) => detail.locationId === id);
+    console.log('Database details:', db.data.details);
+    const details = db.data.details.filter((detail) => detail.locationId === id);
+    console.log('Fetched details for location id:', id, details);
+    return details;
+    //return db.data.details.filter((detail) => detail.locationId === id);
   },
 
   async getDetailById(id) {
@@ -47,6 +61,6 @@ export const detailsJsonStore = {
     detail.duration = updatedDetail.duration;
    // detail.imagePath = updatedDetail.imagePath; 
     detail.isSetLocation = updatedDetail.isSetLocation;
-    detail.isPublic = updatedDetail.isPublic;
+    //detail.isPublic = updatedDetail.isPublic;
   },
 };
