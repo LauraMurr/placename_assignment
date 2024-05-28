@@ -117,7 +117,7 @@ form .input-green {
 
 .carousel-container {
   position: relative;
-  width: 100%; 
+  width: 90%; 
   margin: auto; 
   margin-bottom: 20px;
 }
@@ -125,7 +125,7 @@ form .input-green {
 .image-carousel {
   width: 80%;
   margin: auto;
-  display: flex;
+
   overflow: hidden;
 }
 
@@ -313,21 +313,23 @@ form .input-green {
 .review-carousel-container {
   position: relative;
   margin: auto;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .review-carousel {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  overflow: visible;
+  width: 80%;
+  margin: auto;
+
+  overflow: hidden;
 }
+
 
 .review-slide {
   min-width: 100%; 
   padding: 0px 100px;
   box-sizing: border-box;
   text-align: center;
-  overflow: visible;
+  padding: 20px; 
 }
 
 .review-title {
@@ -359,6 +361,21 @@ form .input-green {
 
 /* Review arrows */
 
+.prev-review, .next-review {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background-color: #DCEDC2; 
+  color: #2d2d2d; 
+  font-size: 64px;
+  cursor: pointer;
+  z-index: 2;
+  padding: 10px;
+  border-radius: 90%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+}
+
 .prev-review {
   left: -5px;
 }
@@ -368,10 +385,10 @@ form .input-green {
 }
 
 
+
 /* Read-more settings */
 
 .review-content {
-  flex-grow: 3;
   position: relative;
   font-family: monospace;
   font-style: italic;
@@ -379,11 +396,12 @@ form .input-green {
   text-align: justify;
   margin-bottom: 30px; 
   transition: max-height 0.5s ease;
-  
+  color: #DCEDC2;
 }
 
 .review-content.collapsed {
   max-height: 120px;
+  background: #2d2d2d;
   
 }
 

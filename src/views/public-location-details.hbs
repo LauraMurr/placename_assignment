@@ -29,6 +29,7 @@
     </div>
     {{/each}}
   </div>
+   <div class="container">
  <div class="carousel-container">
   <div class="review-carousel">
     <!-- Static Sample Review for display -->
@@ -43,66 +44,56 @@
       <p class="reviewer">Reviewed by Emma Thompson</p>
       <p class="review-date">May 15, 2024</p>
     </div>
-    
-    <!-- Dynamic Reviews -->
-    {{#each reviews}}
+    <!-- Second Static Review -->
     <div class="review-slide">
-      <div class="star-rating">{{stars this.rating}}</div> <!-- You'll need a helper to convert numeric ratings to stars -->
-      <h3 class="review-title">"{{title}}"</h3>
+      <div class="star-rating is-size-3">★★★★☆</div>
+      <h3 class="review-title">"Great Walk with Some Crowds"</h3>
       <p class="review-content">
-        {{truncate content 250}}
-        <span class="more-text"> {{slice content 250}}</span>
+        "The trail offers beautiful views and a pleasant hike, but it can get quite crowded on weekends. 
+        <span class="more-text"> The trail itself is well-maintained, and there are several spots perfect for picnics. The lake view is stunning, especially at sunset. Despite the crowds, it's a lovely place to spend a day out in nature."</span>
         <a href="#" class="read-more-link">read more...</a>
       </p>
-      <p class="reviewer">Reviewed by {{user}}</p>
-      <p class="review-date">{{date}}</p>
+      <p class="reviewer">Reviewed by John Doe</p>
+      <p class="review-date">June 20, 2024</p>
     </div>
-    {{else}}
-    <div class="review-slide">No other reviews yet.</div>
-    {{/each}}
   </div>
   <button class="prev-review arrow">&#10094;</button>
   <button class="next-review arrow">&#10095;</button>
 </div>
-
-
+</div>
 
 <section class="section">
   <div class="container">
-  </div>
-  <div class="carousel-container">
-  <div class="image-carousel">
-    <div class="image">
-      <img src="/public/images/hills.jpg" alt="First Slide">
-      <div class="image-caption">
-    Photo by John Dolan - July 12, 2023
-  </div>
+    <div class="carousel-container">
+      <div class="image-carousel">
+        <div class="image">
+          <img src="/public/images/hills.jpg" alt="First Slide">
+          <div class="image-caption">Photo by John Dolan - July 12, 2023</div>
+        </div>
+        <div class="image">
+          <img src="/public/images/Forest4.jpg" alt="Second Slide">
+          <div class="image-caption">Photo by Anna Williams - May 1, 2023</div>
+        </div>
+        <div class="image">
+          <img src="/public/images/lake2.jpg" alt="Third Slide">
+          <div class="image-caption">Photo by Rachel Murray - June 10, 2023</div>
+        </div>
+      </div>
+      <div class="buttons is-centered">
+        <button class="prev arrow">&#10094;</button>
+        <button class="next arrow">&#10095;</button> 
+      </div>
+      <div class="thumbnails">
+        <img src="/public/images/hills.jpg" alt="An image of hills" onclick="changeSlide(0)">
+        <img src="/public/images/Forest4.jpg" alt="An image of a forest" onclick="changeSlide(1)">
+        <img src="/public/images/lake2.jpg" alt="An image of a lake" onclick="changeSlide(2)">
+      </div>
     </div>
-    <div class="image">
-      <img src="/public/images/Forest4.jpg" alt="Second Slide">
-      <div class="image-caption">
-    Photo by Anna Williams - May 1, 2023
   </div>
-    </div>
-    <div class="image">
-      <img src="/public/images/lake2.jpg" alt="Third Slide">
-      <div class="image-caption">
-    Photo by Rachel Murray - June 10, 2023
-  </div>
-    </div>
-  </div>
-  <div class="buttons is-centered">
-  <button class="prev arrow">&#10094;</button>
-  <button class="next arrow">&#10095;</button> 
-</div>
-<div class="thumbnails">
-  <img src="/public/images/hills.jpg" alt="An image of hills" onclick="changeSlide(0)">
-  <img src="/public/images/Forest4.jpg" alt="An image of a forest" onclick="changeSlide(1)">
-  <img src="/public/images/lake2.jpg" alt="An image of a lake" onclick="changeSlide(2)">
-</div>
-
 </section>
+
 <div class="container">
   <a href="/dashboard" class="button">Back</a>
 </div>
+
 
